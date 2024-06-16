@@ -1,0 +1,2 @@
+# CursoBasicoPython
+Proyecto educativo
