@@ -14,22 +14,22 @@
 
 #### Instalación de Python
 1. **Windows:**
-   - Visita la página oficial de Python: [python.org](https://www.python.org/).
-   - Descarga el instalador para Windows.
-   - Ejecuta el instalador y asegúrate de seleccionar la opción "Add Python to PATH".
-   - Sigue las instrucciones en pantalla para completar la instalación.
+   Visita la página oficial de Python: [python.org](https://www.python.org/).
+   Descarga el instalador para Windows.
+   Ejecuta el instalador y asegúrate de seleccionar la opción "Add Python to PATH".
+   Sigue las instrucciones en pantalla para completar la instalación.
    
 2. **macOS:**
-   - Python viene preinstalado en macOS, pero es recomendable instalar la versión más reciente.
-   - Puedes usar Homebrew para instalar Python:
+   Python viene preinstalado en macOS, pero es recomendable instalar la versión más reciente.
+   Puedes usar Homebrew para instalar Python:
      ```sh
      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
      brew install python
      ```
    
 3. **Linux:**
-   - La mayoría de las distribuciones de Linux vienen con Python preinstalado.
-   - Para instalar la versión más reciente, usa tu gestor de paquetes:
+   La mayoría de las distribuciones de Linux vienen con Python preinstalado.
+   Para instalar la versión más reciente, usa tu gestor de paquetes:
      ```sh
      sudo apt update
      sudo apt install python3
@@ -57,6 +57,7 @@
 2. Crea una nueva carpeta para tus proyectos de Python.
 3. Dentro de esta carpeta, crea un nuevo archivo llamado `hola_mundo.py`.
 4. Abre `hola_mundo.py` y escribe el siguiente código:
+   
    ```python
    print("Hola, Mundo")
    ```
@@ -65,15 +66,18 @@
 1. Guarda el archivo.
 2. Abre la terminal integrada en VS Code (puedes abrirla desde el menú: `View` > `Terminal`).
 3. Navega hasta la carpeta donde guardaste `hola_mundo.py` usando el comando `cd`:
+   
    ```sh
    cd ruta/a/tu/carpeta
    ```
-4. Ejecuta el programa escribiendo:
+5. Ejecuta el programa escribiendo:
+   
    ```sh
    python hola_mundo.py
    ```
    - En algunas configuraciones puede ser necesario usar `python3` en lugar de `python`.
-5. Deberías ver la salida:
+7. Deberías ver la salida:
+   
    ```
    Hola, Mundo
    ```
