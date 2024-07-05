@@ -22,18 +22,20 @@
 2. **macOS:**
    Python viene preinstalado en macOS, pero es recomendable instalar la versión más reciente.
    Puedes usar Homebrew para instalar Python:
-     ```sh
-     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-     brew install python
-     ```
+   
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install python
+```
    
 3. **Linux:**
    La mayoría de las distribuciones de Linux vienen con Python preinstalado.
    Para instalar la versión más reciente, usa tu gestor de paquetes:
-     ```sh
-     sudo apt update
-     sudo apt install python3
-     ```
+   
+```sh
+sudo apt update
+sudo apt install python3
+```
 
 #### Verificación de la Instalación
 - Abre la terminal o el símbolo del sistema.
@@ -42,9 +44,9 @@
 
 #### Instalación de un Editor de Código
 - Se recomienda usar Visual Studio Code (VS Code):
-  - Descárgalo desde [code.visualstudio.com](https://code.visualstudio.com/).
-  - Instálalo siguiendo las instrucciones para tu sistema operativo.
-  - Instala la extensión de Python para VS Code desde el marketplace de extensiones.
+- Descárgalo desde [code.visualstudio.com](https://code.visualstudio.com/).
+- Instálalo siguiendo las instrucciones para tu sistema operativo.
+- Instala la extensión de Python para VS Code desde el marketplace de extensiones.
 
 ### 2. Primer Programa en Python: "Hola, Mundo"
 
@@ -58,29 +60,29 @@
 3. Dentro de esta carpeta, crea un nuevo archivo llamado `hola_mundo.py`.
 4. Abre `hola_mundo.py` y escribe el siguiente código:
    
-   ```python
-   print("Hola, Mundo")
-   ```
+```python
+print("Hola, Mundo")
+```
 
 #### Ejecutar tu Programa
 1. Guarda el archivo.
 2. Abre la terminal integrada en VS Code (puedes abrirla desde el menú: `View` > `Terminal`).
 3. Navega hasta la carpeta donde guardaste `hola_mundo.py` usando el comando `cd`:
    
-   ```sh
-   cd ruta/a/tu/carpeta
-   ```
+```sh
+cd ruta/a/tu/carpeta
+```
 5. Ejecuta el programa escribiendo:
    
-   ```sh
-   python hola_mundo.py
-   ```
+```sh
+python hola_mundo.py
+```
    - En algunas configuraciones puede ser necesario usar `python3` en lugar de `python`.
 7. Deberías ver la salida:
    
-   ```
-   Hola, Mundo
-   ```
+```
+Hola, Mundo
+```
 
 ### Resumen y Tareas
 - Hoy aprendiste qué es Python, cómo instalarlo y configurarlo en tu sistema.
