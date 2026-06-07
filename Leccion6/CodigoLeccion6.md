@@ -1,107 +1,151 @@
-### Ejemplo 1: Creación y Manipulación de Diccionarios
+# Guía Práctica de Código: Lección 6 (Diccionarios y Conjuntos)
 
+Esta guía recopila y detalla los scripts prácticos correspondientes a la **Lección 6**, enfocados en estructuras de datos asociativas (diccionarios) y de elementos únicos (conjuntos).
+
+---
+
+## 📋 Índice de Ejemplos y Archivos
+
+| Archivo Ejecutable | Concepto que Ilustra | Comando de Ejecución |
+| :--- | :--- | :--- |
+| `01_CreacionyManipulaciondeDiccionarios.py` | Definición de diccionarios, inserción y eliminación | `python 01_CreacionyManipulaciondeDiccionarios.py` |
+| `02_MetodosyOperacionesconDiccionarios.py` | Métodos `.get()`, `.keys()`, `.values()` e `.items()` | `python 02_MetodosyOperacionesconDiccionarios.py` |
+| `03_CreacionyOperacionesconConjuntos.py` | Creación de conjuntos y eliminación de duplicados | `python 03_CreacionyOperacionesconConjuntos.py` |
+| `04_OperacionesAvanzadasconConjuntos.py` | Álgebra de conjuntos (uniones, intersecciones, etc.) | `python 04_OperacionesAvanzadasconConjuntos.py` |
+| `05_DiccionariosdeDiccionarios.py` | Estructuras de datos mapeadas anidadas | `python 05_DiccionariosdeDiccionarios.py` |
+
+---
+
+## 🔍 Explicación Detallada de los Ejemplos
+
+### Ejemplo 1: Creación y Manipulación de Diccionarios (`01_CreacionyManipulaciondeDiccionarios.py`)
 ```python
-# Crear un diccionario de estudiantes y sus calificaciones
-calificaciones = {"Juan": 85, "María": 90, "Carlos": 78}
+# Crear un diccionario de un producto
+producto = {
+    "nombre": "Laptop",
+    "precio": 800,
+    "stock": 10
+}
+print("Producto inicial:", producto)
 
-# Agregar un nuevo estudiante y su calificación
-calificaciones["Ana"] = 95
-print(calificaciones)  # Salida: {'Juan': 85, 'María': 90, 'Carlos': 78, 'Ana': 95}
+# Modificar un valor
+producto["precio"] = 750
 
-# Eliminar la entrada de Carlos
-del calificaciones["Carlos"]
-print(calificaciones)  # Salida: {'Juan': 85, 'María': 90, 'Ana': 95}
+# Agregar un nuevo par clave-valor
+producto["marca"] = "BrandX"
 
-# Obtener todas las claves del diccionario
-print("Estudiantes:", calificaciones.keys())  # Salida: dict_keys(['Juan', 'María', 'Ana'])
+# Eliminar una clave
+del producto["stock"]
+
+print("Producto modificado:", producto)
 ```
+* **Explicación:** Declaramos una estructura clave-valor. Mostramos cómo reescribir una clave (`precio`), añadir una clave nueva (`marca`), y remover permanentemente una propiedad (`stock`) usando `del`.
+* **Salida:**
+  ```text
+  Producto inicial: {'nombre': 'Laptop', 'precio': 800, 'stock': 10}
+  Producto modificado: {'nombre': 'Laptop', 'precio': 750, 'marca': 'BrandX'}
+  ```
 
-### Ejemplo 2: Métodos y Operaciones con Diccionarios
+---
 
+### Ejemplo 2: Métodos y Operaciones con Diccionarios (`02_MetodosyOperacionesconDiccionarios.py`)
 ```python
-# Crear un diccionario de palabras y sus traducciones
-diccionario = {"casa": "house", "perro": "dog", "sol": "sun"}
-
-# Obtener todas las claves del diccionario
-claves = diccionario.keys()
-print("Claves:", claves)  # Salida: dict_keys(['casa', 'perro', 'sol'])
-
-# Obtener todos los valores del diccionario
-valores = diccionario.values()
-print("Valores:", valores)  # Salida: dict_values(['house', 'dog', 'sun'])
-
-# Obtener pares clave-valor como tuplas
-items = diccionario.items()
-print("Items:", items)  # Salida: dict_items([('casa', 'house'), ('perro', 'dog'), ('sol', 'sun')])
-```
-
-### Ejemplo 3: Creación y Operaciones con Conjuntos
-
-```python
-# Crear dos conjuntos de números
-numeros_pares = {2, 4, 6, 8, 10}
-numeros_impares = {1, 3, 5, 7, 9}
-
-# Agregar un número al conjunto de pares
-numeros_pares.add(12)
-print("Números pares:", numeros_pares)  # Salida: {2, 4, 6, 8, 10, 12}
-
-# Eliminar un número del conjunto de impares
-numeros_impares.remove(7)
-print("Números impares:", numeros_impares)  # Salida: {1, 3, 5, 9}
-
-# Comprobación de pertenencia en conjuntos
-print("¿El número 4 está en números pares?", 4 in numeros_pares)  # Salida: True
-
-# Unión de conjuntos
-union = numeros_pares | numeros_impares
-print("Unión:", union)  # Salida: {1, 2, 3, 4, 5, 6, 8, 9, 10, 12}
-
-# Intersección de conjuntos
-interseccion = numeros_pares & numeros_impares
-print("Intersección:", interseccion)  # Salida: set()
-
-# Diferencia entre conjuntos
-diferencia = numeros_pares - numeros_impares
-print("Diferencia:", diferencia)  # Salida: {2, 4, 6, 8, 10, 12}
-```
-
-### Ejemplo 4: Operaciones Avanzadas con Conjuntos
-
-```python
-# Crear dos conjuntos de letras
-set1 = {"a", "b", "c", "d", "e"}
-set2 = {"c", "d", "e", "f", "g"}
-
-# Actualizar un conjunto con elementos de otro conjunto
-set1.update(set2)
-print("Set1 actualizado:", set1)  # Salida: {'a', 'b', 'c', 'd', 'e', 'f', 'g'}
-
-# Eliminar un elemento específico de un conjunto
-set1.discard("b")
-print("Set1 después de descartar 'b':", set1)  # Salida: {'a', 'c', 'd', 'e', 'f', 'g'}
-
-# Vaciar un conjunto
-set2.clear()
-print("Set2 después de limpiar:", set2)  # Salida: set()
-```
-
-### Ejemplo 5: Diccionario de Diccionarios
-
-```python
-# Crear un diccionario de diccionarios para almacenar información de estudiantes
-estudiantes = {
-    "Juan": {"edad": 25, "carrera": "Informática"},
-    "María": {"edad": 23, "carrera": "Matemáticas"},
-    "Ana": {"edad": 27, "carrera": "Física"}
+estudiante = {
+    "nombre": "Ana",
+    "edad": 22,
+    "carrera": "Ingeniería"
 }
 
-# Acceder a la información de un estudiante específico
-print("Información de Juan:", estudiantes["Juan"])  
-# Salida: {'edad': 25, 'carrera': 'Informática'}
+# Obtener valor de forma segura
+print("Correo:", estudiante.get("correo", "No registrado"))
 
-# Modificar la información de un estudiante
-estudiantes["Ana"]["edad"] = 28
-print("Información actualizada de Ana:", estudiantes["Ana"])  
-# Salida: {'edad': 28, 'carrera': 'Física'}
+# Obtener claves, valores e ítems
+print("Claves:", list(estudiante.keys()))
+print("Valores:", list(estudiante.values()))
+print("Ítems (Pares):", list(estudiante.items()))
 ```
+* **Explicación:** Se ilustra la robustez de `.get()`. Adicionalmente, extraemos las claves, valores y tuplas asociativas (`items`) para poder convertirlas o recorrerlas con facilidad.
+* **Salida:**
+  ```text
+  Correo: No registrado
+  Claves: ['nombre', 'edad', 'carrera']
+  Valores: ['Ana', 22, 'Ingeniería']
+  Ítems (Pares): [('nombre', 'Ana'), ('edad', 22), ('carrera', 'Ingeniería')]
+  ```
+
+---
+
+### Ejemplo 3: Creación y Operaciones con Conjuntos (`03_CreacionyOperacionesconConjuntos.py`)
+```python
+# Crear un conjunto con duplicados
+numeros = {1, 2, 2, 3, 4, 4, 5}
+print("Conjunto (valores únicos):", numeros)
+
+# Agregar elementos
+numeros.add(6)
+
+# Eliminar elementos
+numeros.remove(3)
+
+print("Conjunto modificado:", numeros)
+```
+* **Explicación:** El intérprete filtra los duplicados de forma interna al inicializar el set. Usamos `.add()` y `.remove()` para gestionar sus valores.
+* **Salida:**
+  ```text
+  Conjunto (valores únicos): {1, 2, 3, 4, 5}
+  Conjunto modificado: {1, 2, 4, 5, 6}
+  ```
+
+---
+
+### Ejemplo 4: Operaciones Avanzadas con Conjuntos (`04_OperacionesAvanzadasconConjuntos.py`)
+```python
+grupo_a = {1, 2, 3, 4}
+grupo_b = {3, 4, 5, 6}
+
+# Unión
+print("Unión (A | B):", grupo_a | grupo_b)
+
+# Intersección
+print("Intersección (A & B):", grupo_a & grupo_b)
+
+# Diferencia (elementos de A que no están en B)
+print("Diferencia (A - B):", grupo_a - grupo_b)
+
+# Diferencia simétrica
+print("Diferencia Simétrica (A ^ B):", grupo_a ^ grupo_b)
+```
+* **Salida:**
+  ```text
+  Unión (A | B): {1, 2, 3, 4, 5, 6}
+  Intersección (A & B): {3, 4}
+  Diferencia (A - B): {1, 2}
+  Diferencia Simétrica (A ^ B): {1, 2, 5, 6}
+  ```
+
+---
+
+### Ejemplo 5: Diccionarios de Diccionarios (`05_DiccionariosdeDiccionarios.py`)
+```python
+# Estructura de base de datos escolar
+escuela = {
+    "grupo_1": {
+        "profesor": "Gómez",
+        "alumnos": ["Juan", "María"]
+    },
+    "grupo_2": {
+        "profesor": "Pérez",
+        "alumnos": ["Carlos", "Ana"]
+    }
+}
+
+# Acceso anidado
+print("Profesor del Grupo 1:", escuela["grupo_1"]["profesor"])
+print("Alumnos del Grupo 2:", escuela["grupo_2"]["alumnos"])
+```
+* **Explicación:** Demuestra el modelado de datos jerárquico. Se encadenan llaves de acceso para profundizar en el diccionario anidado.
+* **Salida:**
+  ```text
+  Profesor del Grupo 1: Gómez
+  Alumnos del Grupo 2: ['Carlos', 'Ana']
+  ```

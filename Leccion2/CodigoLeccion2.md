@@ -1,4 +1,27 @@
-### Ejemplo 1: Asignación de Variables
+# Guía Práctica de Código: Lección 2 (Variables y Tipos de Datos)
+
+Esta guía documenta los archivos y ejemplos de código práctico dedicados al entendimiento y manipulación de variables y tipos de datos básicos en Python.
+
+---
+
+## 📋 Índice de Ejemplos y Archivos
+
+| Archivo Ejecutable | Concepto que Ilustra | Comando de Ejecución |
+| :--- | :--- | :--- |
+| `01_AsignaciondeVariables.py` | Asignación básica e inferencia de tipos | `python 01_AsignaciondeVariables.py` |
+| `02_OperacionesArismeticas.py` | Operaciones aritméticas elementales | `python 02_OperacionesArismeticas.py` |
+| `03_ConcatenaciondeCadenas.py` | Unión y formateo de texto | `python 03_ConcatenaciondeCadenas.py` |
+| `04_OperacionesconBooleanos.py` | Álgebra booleana y comparadores lógicos | `python 04_OperacionesconBooleanos.py` |
+| `05_ProgramaInteractivo_OperacionesAritmeticas.py` | Entrada interactiva y operaciones matemáticas | `python 05_ProgramaInteractivo_OperacionesAritmeticas.py` |
+| `06_ProgramaInteractivo_MensajePersonalizado.py` | Captura interactiva de variables múltiples | `python 06_ProgramaInteractivo_MensajePersonalizado.py` |
+| `07_ConversiondeTiposdeDatos.py` | Casteo y forzado explícito de tipos | `python 07_ConversiondeTiposdeDatos.py` |
+
+---
+
+## 🔍 Explicación Detallada de los Ejemplos
+
+### Ejemplo 1: Asignación de Variables (`01_AsignaciondeVariables.py`)
+Muestra cómo se almacenan datos simples en variables autodefinidas.
 
 ```python
 # Asignación de variables
@@ -6,44 +29,53 @@ numero_entero = 10
 numero_flotante = 10.5
 cadena_texto = "Hola, Python"
 valor_booleano = True
-
-# Imprimir valores de las variables
-print("Número entero:", numero_entero)
-print("Número flotante:", numero_flotante)
-print("Cadena de texto:", cadena_texto)
-print("Valor booleano:", valor_booleano)
 ```
+* **Explicación:** Se asignan valores de cuatro tipos distintos a cuatro variables independientes. Python infiere automáticamente sus tipos como `int`, `float`, `str` y `bool`.
+* **Salida en consola:** *(Este script no realiza salidas en consola al no contener llamadas a `print()`)*
 
-### Ejemplo 2: Operaciones Aritméticas
+---
+
+### Ejemplo 2: Operaciones Aritméticas (`02_OperacionesArismeticas.py`)
+Cálculo aritmético usando variables y constantes.
 
 ```python
-# Operaciones aritméticas
+# Definición de operandos
 a = 10
 b = 5
 
+# Operaciones básicas
 suma = a + b
-print("Suma:", suma)
-
 resta = a - b
-print("Resta:", resta)
-
 multiplicacion = a * b
-print("Multiplicación:", multiplicacion)
-
 division = a / b
-print("División:", division)
-
 division_entera = a // b
-print("División Entera:", division_entera)
-
 modulo = a % b
-print("Módulo:", modulo)
-
 exponente = a ** b
+
+print("Suma:", suma)
+print("Resta:", resta)
+print("Multiplicación:", multiplicacion)
+print("División:", division)
+print("División Entera:", division_entera)
+print("Módulo:", modulo)
 print("Exponenciación:", exponente)
 ```
+* **Explicación:** Declaramos operandos de prueba y aplicamos el catálogo de operadores aritméticos elementales de Python.
+* **Salida en consola:**
+  ```text
+  Suma: 15
+  Resta: 5
+  Multiplicación: 50
+  División: 2.0
+  División Entera: 2
+  Módulo: 0
+  Exponenciación: 100000
+  ```
 
-### Ejemplo 3: Concatenación de Cadenas
+---
+
+### Ejemplo 3: Concatenación de Cadenas (`03_ConcatenaciondeCadenas.py`)
+Ensamblado de múltiples cadenas empleando sumas de texto.
 
 ```python
 # Concatenación de cadenas
@@ -52,84 +84,115 @@ nombre = "Juan"
 frase = saludo + ", " + nombre + "!"
 print(frase)
 ```
+* **Explicación:** Empleamos el operador `+` para unir físicamente strings literales con variables de tipo cadena.
+* **Salida en consola:**
+  ```text
+  Hola, Juan!
+  ```
 
-### Ejemplo 4: Operaciones con Booleanos
+---
+
+### Ejemplo 4: Operaciones con Booleanos (`04_OperacionesconBooleanos.py`)
+Evaluación lógica de condiciones verdaderas o falsas.
 
 ```python
-# Operaciones lógicas con booleanos
 verdadero = True
 falso = False
 
+# Operadores lógicos
 resultado_and = verdadero and falso
-print("AND lógico:", resultado_and)
-
 resultado_or = verdadero or falso
-print("OR lógico:", resultado_or)
-
 resultado_not = not verdadero
+
+print("AND lógico:", resultado_and)
+print("OR lógico:", resultado_or)
 print("NOT lógico:", resultado_not)
 ```
+* **Explicación:** Se operan valores booleanos usando las palabras reservadas de álgebra de proposiciones `and`, `or` y `not`.
+* **Salida en consola:**
+  ```text
+  AND lógico: False
+  OR lógico: True
+  NOT lógico: False
+  ```
 
-### Ejemplo 5: Programa Interactivo - Operaciones Aritméticas
+---
+
+### Ejemplo 5: Programa Interactivo - Operaciones Aritméticas (`05_ProgramaInteractivo_OperacionesAritmeticas.py`)
+Captura interactiva y conversión directa para cálculos inmediatos.
 
 ```python
-# Programa que pide dos números al usuario y realiza operaciones aritméticas
+# Capturar datos de entrada
+num1 = float(input("Introduce el primer número: "))
+num2 = float(input("Introduce el segundo número: "))
 
-# Pedir al usuario el primer número
-numero1 = float(input("Introduce el primer número: "))
+# Cálculos
+suma = num1 + num2
+resta = num1 - num2
+multiplicacion = num1 * num2
+division = num1 / num2
 
-# Pedir al usuario el segundo número
-numero2 = float(input("Introduce el segundo número: "))
-
-# Realizar operaciones aritméticas
-suma = numero1 + numero2
-resta = numero1 - numero2
-multiplicacion = numero1 * numero2
-division = numero1 / numero2
-
-# Imprimir resultados
+# Mostrar resultados
 print("Suma:", suma)
 print("Resta:", resta)
 print("Multiplicación:", multiplicacion)
 print("División:", division)
 ```
+* **Explicación:** Envolvemos la función `input()` con `float()` para asegurar que las variables de entrada se almacenen como números con soporte decimal antes de realizar las operaciones aritméticas.
+* **Salida en consola:** *(Ejemplo de ejecución con valores 8 y 2)*
+  ```text
+  Introduce el primer número: 8
+  Introduce el segundo número: 2
+  Suma: 10.0
+  Resta: 6.0
+  Multiplicación: 16.0
+  División: 4.0
+  ```
 
-### Ejemplo 6: Programa Interactivo - Mensaje Personalizado
+---
+
+### Ejemplo 6: Programa Interactivo - Mensaje Personalizado (`06_ProgramaInteractivo_MensajePersonalizado.py`)
+Despliegue de datos capturados en una sola línea informativa.
 
 ```python
-# Programa que pide el nombre y la edad del usuario y muestra un mensaje personalizado
+nombre = input("¿Cómo te llamas? ")
+edad = input("¿Cuántos años tienes? ")
 
-# Pedir al usuario su nombre
-nombre = input("Introduce tu nombre: ")
-
-# Pedir al usuario su edad
-edad = int(input("Introduce tu edad: "))
-
-# Crear y mostrar el mensaje personalizado
-mensaje = "Hola, " + nombre + ". Tienes " + str(edad) + " años."
-print(mensaje)
+print("Hola, " + nombre + "! Tienes " + edad + " años.")
 ```
+* **Explicación:** Capturamos dos entradas separadas e imprimimos una oración descriptiva uniendo los valores. Como no operamos matemáticamente la edad, podemos mantenerla como texto sin necesidad de casteo.
+* **Salida en consola:**
+  ```text
+  ¿Cómo te llamas? Bastian
+  ¿Cuántos años tienes? 24
+  Hola, Bastian! Tienes 24 años.
+  ```
 
-### Ejemplo 7: Conversión de Tipos de Datos
+---
+
+### Ejemplo 7: Conversión de Tipos de Datos (`07_ConversiondeTiposdeDatos.py`)
+Forzado manual e inspección de clases.
 
 ```python
-# Conversión de tipos de datos
-numero_str = "123"
-numero_int = int(numero_str)
-print("Convertido a entero:", numero_int)
+# Conversión de entero a flotante
+entero = 5
+flotante = float(entero)
+print(flotante)  # Imprime: 5.0
 
-flotante_str = "3.14"
-numero_flotante = float(flotante_str)
-print("Convertido a flotante:", numero_flotante)
+# Conversión de flotante a entero (trunca los decimales)
+decimal = 5.7
+entero_nuevo = int(decimal)
+print(entero_nuevo)  # Imprime: 5
 
-# Convertir número a cadena
+# Conversión de número a cadena
 numero = 100
-numero_cadena = str(numero)
-print("Convertido a cadena:", numero_cadena)
-
-# Convertir booleano a entero
-verdadero = True
-falso = False
-print("Convertido a entero (True):", int(verdadero))
-print("Convertido a entero (False):", int(falso))
+cadena = str(numero)
+print(type(cadena))  # Imprime: <class 'str'>
 ```
+* **Explicación:** Demostramos el cambio explícito de tipos. Destaca el uso de `type()`, una función integrada de Python que nos indica la clase del objeto evaluado.
+* **Salida en consola:**
+  ```text
+  5.0
+  5
+  <class 'str'>
+  ```

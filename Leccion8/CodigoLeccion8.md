@@ -1,99 +1,113 @@
-### Ejemplo 1: Entrada de Usuario y Salida en Consola
+# Guía Práctica de Código: Lección 8 (Entrada y Salida / Archivos)
 
+Esta guía detalla los scripts prácticos correspondientes a la **Lección 8**, orientados a interactuar con consolas y realizar lectura/escritura de archivos planos de texto en disco.
+
+---
+
+## 📋 Índice de Ejemplos y Archivos
+
+| Archivo Ejecutable | Concepto que Ilustra | Comando de Ejecución |
+| :--- | :--- | :--- |
+| `01_EntradadeUsuariosySalidaenConsola.py` | Interactividad básica y personalización de print | `python 01_EntradadeUsuariosySalidaenConsola.py` |
+| `02_LecturayEscrituradeArchivos.py` | Apertura básica de archivos (modos `w` y `r`) | `python 02_LecturayEscrituradeArchivos.py` |
+| `03_ManipuaciondeArchivosconIteracion.py` | Escritura de arreglos de datos en archivos | `python 03_ManipuaciondeArchivosconIteracion.py` |
+| `04_Usode-TRY-EXCEP-paraManejodeErroresdeArchivos.py` | Control de errores al abrir archivos inexistentes | `python 04_Usode-TRY-EXCEP-paraManejodeErroresdeArchivos.py` |
+| `05_LecturadeArchivosLineaporLinea.py` | Lectura eficiente de archivos grandes | `python 05_LecturadeArchivosLineaporLinea.py` |
+
+---
+
+## 🔍 Explicación Detallada de los Ejemplos
+
+### Ejemplo 1: Entrada de Usuario y Salida en Consola (`01_EntradadeUsuariosySalidaenConsola.py`)
 ```python
-# Entrada de usuario y salida en consola
-nombre = input("Ingrese su nombre: ")
-edad = input("Ingrese su edad: ")
+# Entrada de datos
+nombre = input("Introduce tu nombre: ")
+edad = int(input("Introduce tu edad: "))
 
-print(f"Hola, {nombre}! Tu edad es {edad} años.")
+# Salida formateada
+print("Hola,", nombre, "tienes", edad, "años.", sep=" - ", end="\n\n")
+print("Fin de la sección.")
 ```
+* **Explicación:** Se capturan los datos. Usamos el parámetro `sep` para definir que las comas del print se representen con `" - "` en lugar del espacio convencional y un final de impresión con doble salto de línea `end="\n\n"`.
+* **Salida:** *(Con entradas "Bastian" y 24)*
+  ```text
+  Introduce tu nombre: Bastian
+  Introduce tu edad: 24
+  Hola, - Bastian - tienes - 24 - años.
 
-En este ejemplo, el programa solicita al usuario que ingrese su nombre y edad, luego imprime un mensaje personalizado utilizando f-strings para formatear la salida.
+  Fin de la sección.
+  ```
 
-### Ejemplo 2: Lectura y Escritura de Archivos
+---
 
-#### Lectura de Archivo
-
+### Ejemplo 2: Lectura y Escritura de Archivos (`02_LecturayEscrituradeArchivos.py`)
 ```python
-# Lectura de archivo
-try:
-    with open("datos.txt", "r") as archivo_entrada:
-        contenido = archivo_entrada.read()
-        print("Contenido del archivo:")
-        print(contenido)
-except FileNotFoundError:
-    print("El archivo no existe.")
+# Escribir en un archivo
+with open("ejemplo.txt", "w") as archivo:
+    archivo.write("Hola, Mundo\n")
+    archivo.write("Bienvenido a la programación en Python.")
+
+# Leer desde un archivo
+with open("ejemplo.txt", "r") as archivo:
+    contenido = archivo.read()
+    print("Contenido del archivo:")
+    print(contenido)
 ```
+* **Explicación:** El bloque `with` asegura el guardado de los cambios y el cierre inmediato del archivo `ejemplo.txt`.
 
-En este ejemplo, el programa intenta abrir y leer el archivo "datos.txt". Si el archivo no existe, maneja la excepción `FileNotFoundError` e imprime un mensaje indicando que el archivo no está presente.
+---
 
-#### Escritura en Archivo
-
+### Ejemplo 3: Manipulación de Archivos con Iteración (`03_ManipuaciondeArchivosconIteracion.py`)
 ```python
-# Escritura en archivo
-with open("resultados.txt", "w") as archivo_salida:
-    archivo_salida.write("Estos son los resultados obtenidos.\n")
-    archivo_salida.write("Segunda línea de texto.")
-    archivo_salida.write("\nTercera línea añadida.\n")
-    archivo_salida.write("¡Fin!")
+lineas = ["Primera línea de datos\n", "Segunda línea de datos\n", "Tercera línea de datos\n"]
+
+# Escribir una lista de líneas en lote
+with open("iteracion.txt", "w") as archivo:
+    archivo.writelines(lineas)
+
+print("Datos escritos correctamente.")
 ```
+* **Explicación:** El método `.writelines()` recibe un iterable (como una lista) y escribe secuencialmente cada elemento de texto en el archivo.
 
-En este ejemplo, el programa abre el archivo "resultados.txt" en modo escritura (`'w'`) y escribe varias líneas de texto. Cada llamada a `write()` agrega una nueva línea al archivo.
+---
 
-### Ejemplo 3: Manipulación de Archivos con Iteración
-
-#### Conteo de Líneas en un Archivo
-
+### Ejemplo 4: Uso de `try-except` para Manejo de Errores de Archivos (`04_Usode-TRY-EXCEP-paraManejodeErroresdeArchivos.py`)
 ```python
-# Conteo de líneas en un archivo
-nombre_archivo = "ejemplo.txt"
-
-try:
-    with open(nombre_archivo, "r") as archivo:
-        lineas = archivo.readlines()
-        cantidad_lineas = len(lineas)
-        print(f"El archivo '{nombre_archivo}' tiene {cantidad_lineas} líneas.")
-except FileNotFoundError:
-    print(f"El archivo '{nombre_archivo}' no existe.")
-```
-
-En este ejemplo, el programa intenta abrir el archivo "ejemplo.txt" para contar el número de líneas que contiene. Utiliza `readlines()` para obtener una lista de todas las líneas y luego calcula la longitud de la lista para determinar el número de líneas.
-
-### Ejemplo 4: Uso de `try-except` para Manejo de Errores de Archivo
-
-```python
-# Uso de try-except para manejo de errores de archivo
-nombre_archivo = "datos.txt"
+nombre_archivo = "archivo_inexistente.txt"
 
 try:
     with open(nombre_archivo, "r") as archivo:
         contenido = archivo.read()
-        print("Contenido del archivo:")
         print(contenido)
 except FileNotFoundError:
-    print(f"El archivo '{nombre_archivo}' no se encontró.")
-except PermissionError:
-    print(f"No tienes permisos para abrir el archivo '{nombre_archivo}'.")
-except Exception as e:
-    print(f"Ocurrió un error: {e}")
+    print(f"Error: El archivo '{nombre_archivo}' no se pudo encontrar en el disco.")
 ```
+* **Explicación:** Protege la ejecución del programa contra fallos inesperados. Al buscar un archivo que no existe en el sistema local, el error `FileNotFoundError` es capturado y tratado en el bloque `except`.
+* **Salida:**
+  ```text
+  Error: El archivo 'archivo_inexistente.txt' no se pudo encontrar en el disco.
+  ```
 
-En este ejemplo, el programa utiliza `try-except` para manejar posibles errores al intentar abrir y leer el archivo "datos.txt". Puede manejar errores específicos como `FileNotFoundError` y `PermissionError`, y también captura cualquier otro tipo de excepción genérica usando `Exception`.
+---
 
-### Ejemplo 5: Lectura de Archivo Línea por Línea
-
+### Ejemplo 5: Lectura de Archivos Línea por Línea (`05_LecturadeArchivosLineaporLinea.py`)
 ```python
-# Lectura de archivo línea por línea
-nombre_archivo = "datos.txt"
+# Escribir contenido inicial
+with open("lineas.txt", "w") as archivo:
+    archivo.write("Línea A\nLínea B\nLínea C\n")
 
-try:
-    with open(nombre_archivo, "r") as archivo:
-        for linea in archivo:
-            print(linea.strip())  # strip() elimina espacios en blanco al inicio y final de la línea
-except FileNotFoundError:
-    print(f"El archivo '{nombre_archivo}' no se encontró.")
-except Exception as e:
-    print(f"Ocurrió un error: {e}")
+# Iterar sobre el objeto archivo línea por línea
+with open("lineas.txt", "r") as archivo:
+    print("Lectura iterada:")
+    for linea in archivo:
+        # Usamos strip() para no duplicar los saltos de línea \n
+        print("-", linea.strip())
 ```
-
-En este ejemplo, el programa lee el archivo "datos.txt" línea por línea usando un bucle `for`. Cada línea se imprime después de eliminar los espacios en blanco al inicio y al final con `strip()`.
+* **Explicación:** Iterar directamente sobre el objeto `archivo` con un bucle `for` lee el contenido línea por línea bajo demanda, evitando cargar todo el archivo completo en la memoria RAM (una práctica recomendada para archivos de gran volumen).
+* **Salida:**
+  ```text
+  Lectura iterada:
+  - Línea A
+  - Línea B
+  - Línea C
+  ```

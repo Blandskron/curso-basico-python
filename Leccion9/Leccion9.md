@@ -1,124 +1,69 @@
-## Lección 9: Módulos y Librerías Estándar
+# Lección 9: Módulos y Librería Estándar (Modulariad)
 
-### 1. Importación de Módulos
+Esta lección introduce el concepto de modularidad en Python, enseñándote a estructurar tu código en múltiples archivos y a aprovechar las potentes librerías que vienen integradas en el ecosistema estándar de Python.
 
-#### Objetivos
-- Aprender cómo importar y utilizar módulos en Python.
-- Explorar diferentes formas de importación y el uso de alias.
+---
 
-#### Importación Básica
-- Los módulos en Python son archivos que contienen funciones, variables y clases que pueden ser utilizadas en otros programas.
-- Se importan utilizando la palabra clave `import`.
+## 🎯 Objetivos de Aprendizaje
+Al finalizar esta lección, serás capaz de:
+1. **Comprender** el concepto de módulo y paquete en Python.
+2. **Utilizar** las diferentes sintaxis de importación (`import`, `from ... import`, `as`).
+3. **Emplear** las librerías matemáticas (`math`) y de azares (`random`) para resolver problemas de cómputo común.
+4. **Interactuar** con el sistema operativo utilizando la librería `os` y manipular objetos temporales mediante `datetime`.
 
-```python
-# Ejemplo de importación de módulo
-import math
+---
 
-# Uso de funciones del módulo math
-print(math.sqrt(25))  # Salida: 5.0 (raíz cuadrada de 25)
-```
+## 📖 Contenido Conceptual
 
-#### Importación con Alias
-- Se puede importar un módulo con un alias para facilitar su uso en el código.
+### 1. ¿Qué es un Módulo?
+Un módulo es un archivo que contiene definiciones de funciones, clases y variables escritas en Python (es decir, cualquier archivo `.py`). Permite fragmentar proyectos extensos en componentes independientes y reutilizables.
 
-```python
-# Ejemplo de importación con alias
-import datetime as dt
+#### Sintaxis de Importación
 
-# Uso del módulo datetime con alias
-hoy = dt.date.today()
-print(hoy)  # Salida: YYYY-MM-DD (fecha actual)
-```
+* **Importación General:** Importa todo el archivo bajo su espacio de nombres. Requiere usar la notación de punto para acceder a sus funciones.
+  ```python
+  import math
+  print(math.sqrt(16))
+  ```
+* **Importación Selectiva:** Extrae únicamente los elementos específicos que necesitas, colocándolos directamente en el espacio de nombres local.
+  ```python
+  from math import sqrt
+  print(sqrt(16))  # No requiere anteponer "math."
+  ```
+* **Alias de Módulos:** Sobrescribe el nombre del módulo con un alias más corto o descriptivo.
+  ```python
+  import random as rd
+  print(rd.randint(1, 10))
+  ```
 
-#### Importación de Funciones Específicas
-- También es posible importar funciones específicas de un módulo en lugar del módulo completo.
+---
 
-```python
-# Ejemplo de importación de funciones específicas
-from random import randint
+### 2. Catálogo de Librerías Estándar Fundamentales
 
-# Uso de la función randint() del módulo random
-numero = randint(1, 100)
-print(f"Número aleatorio: {numero}")
-```
+Python incorpora cientos de módulos listos para usar. En este curso exploraremos cuatro pilares básicos:
 
-### 2. Uso de Librerías Estándar
+| Módulo | Utilidad Primaria | Funciones Comunes |
+| :--- | :--- | :--- |
+| **`math`** | Cálculos numéricos avanzados y constantes trigonométricas. | `sqrt()` (raíz cuadrada), `pow()` (potencia), `pi` (constante $\pi$), `ceil()` (redondeo hacia arriba). |
+| **`random`** | Generación de números pseudoaleatorios y selecciones al azar. | `randint(a, b)` (entero aleatorio), `choice(sec)` (elemento al azar), `shuffle(lst)` (mezclar lista). |
+| **`os`** | Interacción directa con el sistema de archivos y el sistema operativo. | `getcwd()` (ruta actual), `listdir(path)` (listar directorios), `mkdir()` (crear carpeta), `path.exists()`. |
+| **`datetime`**| Manipulación y formateo de fechas y horas del sistema. | `date.today()`, `datetime.now()`, `strftime()` (dar formato a fechas). |
 
-#### Objetivos
-- Explorar algunas de las librerías estándar más comunes en Python.
-- Aprender cómo utilizar funcionalidades adicionales disponibles sin necesidad de instalaciones externas.
+> [!WARNING]
+> Evita usar nombres de archivos propios que coincidan con módulos estándar (por ejemplo, no llames a tu script de prácticas `random.py`). Si lo haces, Python intentará importar tu archivo en lugar del oficial, generando errores de importación difíciles de detectar.
 
-#### Ejemplos de Librerías Estándar
+---
 
-##### Librería `os`
-- Permite interactuar con el sistema operativo, manipular archivos y directorios.
+## 📝 Resumen de la Lección
+* Los módulos permiten estructurar y empaquetar código reutilizable.
+* Podemos usar `import`, `from ... import` o cambiar el nombre local del módulo con `as`.
+* La **Librería Estándar** es una colección de herramientas nativas de Python que no requieren instalaciones adicionales (`math`, `random`, `os`, `datetime`, entre otras).
 
-```python
-# Ejemplo de uso de la librería os
-import os
+---
 
-# Obtener el directorio actual de trabajo
-directorio_actual = os.getcwd()
-print(f"Directorio actual: {directorio_actual}")
-```
+## 🏋️ Desafíos Prácticos
+Demuestra tu dominio de las librerías estándar completando estas consignas:
 
-##### Librería `datetime`
-- Proporciona clases para manipular fechas y horas.
-
-```python
-# Ejemplo de uso de la librería datetime
-import datetime
-
-# Obtener la fecha y hora actual
-ahora = datetime.datetime.now()
-print(f"Fecha y hora actual: {ahora}")
-```
-
-##### Librería `random`
-- Ofrece funciones para generar números aleatorios.
-
-```python
-# Ejemplo de uso de la librería random
-import random
-
-# Generar un número aleatorio entre 1 y 10
-numero_aleatorio = random.randint(1, 10)
-print(f"Número aleatorio: {numero_aleatorio}")
-```
-
-### Ejemplos de Código
-
-#### Ejemplo 1: Importación y Uso Básico de Módulos
-
-```python
-# Importación y uso básico de módulos
-import math
-
-# Calcular la raíz cuadrada de un número
-numero = 16
-raiz_cuadrada = math.sqrt(numero)
-print(f"La raíz cuadrada de {numero} es {raiz_cuadrada}")
-```
-
-#### Ejemplo 2: Uso de Funciones Específicas de Módulos
-
-```python
-# Uso de funciones específicas de módulos
-from random import choice
-
-# Lista de opciones
-opciones = ["rojo", "verde", "azul"]
-
-# Elegir un elemento aleatorio de la lista
-eleccion = choice(opciones)
-print(f"La elección aleatoria es: {eleccion}")
-```
-
-### Resumen y Tareas
-
-- Hoy aprendiste sobre cómo utilizar módulos y librerías estándar en Python.
-- Practicaste la importación de módulos, el uso de alias y funciones específicas, así como el aprovechamiento de funcionalidades ofrecidas por librerías estándar como `os`, `datetime` y `random`.
-- **Tarea:** Crea un programa que:
-  1. Importe la librería `os` y muestre todos los archivos en el directorio actual.
-  2. Utilice la librería `datetime` para imprimir la fecha y hora actual.
-  3. Importe la función `shuffle` del módulo `random` y mezcle una lista de números del 1 al 10.
+1. **Juego de Dados:** Escribe una función llamada `lanzar_dados()` que simule el lanzamiento de dos dados de 6 caras utilizando `random.randint()`. Retorna la suma de ambos resultados y un mensaje que muestre los valores obtenidos.
+2. **Organizador de Archivos:** Escribe un script que utilice la librería `os` para comprobar si existe una carpeta llamada `CopiasDeSeguridad`. Si no existe, créala automáticamente mediante `os.mkdir()`. En caso de que ya exista, lista e imprime todos los archivos contenidos en ella.
+3. **Calculadora de Edad:** Diseña un programa que le pida al usuario su fecha de nacimiento (año, mes y día) e imprima exactamente cuántos días de vida tiene transcurridos hasta el día de hoy utilizando el módulo `datetime`.

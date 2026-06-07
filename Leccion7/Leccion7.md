@@ -1,154 +1,86 @@
-## Lección 7: Manejo de Cadenas
+# Lección 7: Manejo de Cadenas de Texto (Strings)
 
-### 1. Operaciones Básicas con Cadenas
+Esta lección cubre las técnicas esenciales para el procesamiento, manipulación y formateo de cadenas de caracteres en Python.
 
-#### Objetivos
-- Aprender cómo las cadenas son tratadas como secuencias de caracteres en Python.
-- Realizar operaciones básicas como concatenación, indexación y slicing.
+---
 
-#### Concatenación de Cadenas
-- La concatenación de cadenas se realiza usando el operador `+`.
+## 🎯 Objetivos de Aprendizaje
+Al finalizar esta lección, serás capaz de:
+1. **Comprender** la inmutabilidad de los strings en Python.
+2. **Utilizar** los métodos integrados de texto para limpiar, buscar, segmentar y reemplazar información.
+3. **Dominar** las técnicas modernas de interpolación y formateo de cadenas utilizando `f-strings` y `.format()`.
+4. **Manipular** secuencias de escape y strings multilínea de forma correcta.
+
+---
+
+## 📖 Contenido Conceptual
+
+### 1. Propiedades Fundamentales de los Strings
+* **Indexación:** Las cadenas son secuencias de caracteres indexadas. Cada letra posee un índice numérico de acceso (positivo y negativo), similar a las listas.
+* **Inmutabilidad:** Las cadenas no pueden ser modificadas una vez creadas. Cualquier operación de cambio (como pasar a mayúsculas) devuelve un objeto string nuevo en memoria, dejando la variable original intacta.
 
 ```python
-# Concatenación de cadenas
-saludo = "¡Hola, "
-nombre = "Juan!"
-mensaje = saludo + nombre
-print(mensaje)  # Salida: ¡Hola, Juan!
+texto = "python"
+# Esto lanzará un TypeError:
+# texto[0] = "P"
 ```
 
-#### Indexación y Slicing
-- Las cadenas pueden ser accedidas por índices y segmentadas usando slicing.
+---
+
+### 2. Catálogo de Métodos Esenciales de Cadenas
+
+Python provee una extensa gama de herramientas internas para tratar texto:
+
+| Método | Ejemplo | Descripción |
+| :--- | :--- | :--- |
+| **`.upper()`** | `"hola".upper()` $\rightarrow$ `"HOLA"` | Convierte todos los caracteres a mayúsculas. |
+| **`.lower()`** | `"HOLA".lower()` $\rightarrow$ `"hola"` | Convierte todos los caracteres a minúsculas. |
+| **`.title()`** | `"hola mundo".title()` $\rightarrow$ `"Hola Mundo"` | Capitaliza la primera letra de cada palabra. |
+| **`.strip()`** | `"  hola  ".strip()` $\rightarrow$ `"hola"` | Remueve los espacios en blanco iniciales y finales. |
+| **`.replace(ant, nue)`**| `"hola".replace("o", "a")` $\rightarrow$ `"hala"` | Reemplaza las coincidencias del texto indicado. |
+| **`.split(del)`** | `"a,b,c".split(",")` $\rightarrow$ `["a", "b", "c"]` | Segmenta el texto en una lista usando un delimitador. |
+| **`.join(lista)`** | `"-".join(["a", "b"])` $\rightarrow$ `"a-b"` | Une una lista de textos mediante una cadena conector. |
+| **`.count(sub)`** | `"hola".count("o")` $\rightarrow$ `1` | Cuenta cuántas veces se repite una subcadena. |
+| **`.find(sub)`** | `"hola".find("l")` $\rightarrow$ `2` | Devuelve el primer índice donde se halla la subcadena. |
+
+---
+
+### 3. Formateo y Interpolación de Cadenas
+
+Existen varias formas de estructurar y formatear strings en Python:
+
+#### f-Strings (Interpolación de Cadenas Literal)
+Es el estándar moderno y preferido de la industria debido a su legibilidad y eficiencia. Se declara anteponiendo una `f` al inicio de las comillas e insertando variables o expresiones entre llaves `{}`:
 
 ```python
-# Acceder a caracteres individuales por índice
-palabra = "Python"
-primer_caracter = palabra[0]  # Primer carácter
-ultimo_caracter = palabra[-1]  # Último carácter
-print(primer_caracter)  # Salida: 'P'
-print(ultimo_caracter)  # Salida: 'n'
-
-# Slicing de cadenas
-subcadena = palabra[1:4]  # Desde el índice 1 hasta el 3 (exclusivo)
-print(subcadena)  # Salida: 'yth'
-```
-
-### 2. Métodos de Cadenas
-
-#### Objetivos
-- Explorar métodos integrados de cadenas para manipulación y búsqueda.
-
-#### Métodos Comunes de Cadenas
-- Python proporciona una variedad de métodos útiles para operar y manipular cadenas.
-
-```python
-# Ejemplo de métodos de cadenas
-frase = "Python es un lenguaje de programación"
-
-# Convertir a mayúsculas y minúsculas
-print(frase.upper())    # Salida: "PYTHON ES UN LENGUAJE DE PROGRAMACIÓN"
-print(frase.lower())    # Salida: "python es un lenguaje de programación"
-
-# Contar ocurrencias de una subcadena
-print(frase.count("a"))    # Salida: 4 (número de veces que 'a' aparece en la frase)
-
-# Encontrar la posición de una subcadena
-print(frase.find("lenguaje"))    # Salida: 12 (índice de la primera aparición de "lenguaje")
-
-# Reemplazar una subcadena
-nueva_frase = frase.replace("Python", "Java")
-print(nueva_frase)    # Salida: "Java es un lenguaje de programación"
-```
-
-### 3. Formateo de Cadenas
-
-#### Objetivos
-- Aprender diferentes métodos para formatear cadenas en Python.
-
-#### Formateo con f-strings (Python 3.6+)
-- Las f-strings permiten incrustar expresiones Python dentro de cadenas de manera conveniente.
-
-```python
-nombre = "María"
-edad = 30
-
-# Usar f-strings para formatear una cadena
-mensaje = f"{nombre} tiene {edad} años."
-print(mensaje)  # Salida: "María tiene 30 años."
-```
-
-#### Método `format()`
-- El método `format()` proporciona una forma más flexible de formatear cadenas.
-
-```python
-nombre = "Carlos"
-edad = 25
-
-# Usar el método format()
-mensaje = "{} tiene {} años.".format(nombre, edad)
-print(mensaje)  # Salida: "Carlos tiene 25 años."
-```
-
-### Ejemplos de Código
-
-#### Ejemplo 1: Operaciones Básicas con Cadenas
-
-```python
-# Concatenación de cadenas
-saludo = "Hola, "
-nombre = "Pedro!"
-mensaje = saludo + nombre
-print(mensaje)  # Salida: Hola, Pedro!
-
-# Indexación y slicing
-frase = "Python es un lenguaje"
-primer_letra = frase[0]
-ultima_palabra = frase[-9:]
-print(primer_letra)     # Salida: P
-print(ultima_palabra)   # Salida: lenguaje
-```
-
-#### Ejemplo 2: Métodos de Cadenas
-
-```python
-# Métodos de cadenas
-frase = "Hola Mundo!"
-
-# Convertir a mayúsculas y minúsculas
-print(frase.upper())    # Salida: HOLA MUNDO!
-print(frase.lower())    # Salida: hola mundo!
-
-# Contar ocurrencias de una subcadena
-print(frase.count("o"))    # Salida: 2 (número de veces que 'o' aparece en la frase)
-
-# Encontrar la posición de una subcadena
-print(frase.find("Mundo"))    # Salida: 5 (índice de la primera aparición de "Mundo")
-
-# Reemplazar una subcadena
-nueva_frase = frase.replace("Mundo", "Amigo")
-print(nueva_frase)    # Salida: Hola Amigo!
-```
-
-#### Ejemplo 3: Formateo de Cadenas
-
-```python
-# Formateo con f-strings
-nombre = "Ana"
-edad = 28
-mensaje = f"{nombre} tiene {edad} años."
-print(mensaje)  # Salida: Ana tiene 28 años.
-
-# Formateo con el método format()
 nombre = "Juan"
-edad = 32
-mensaje = "{} tiene {} años.".format(nombre, edad)
-print(mensaje)  # Salida: Juan tiene 32 años.
+edad = 25
+print(f"Me llamo {nombre} y tengo {edad} años. El próximo año tendré {edad + 1}.")
 ```
 
-### Resumen y Tareas
-- Hoy aprendiste sobre cómo manejar cadenas en Python.
-- Practicaste operaciones básicas, métodos integrados y técnicas de formateo de cadenas.
-- **Tarea:** Crea un programa que:
-  1. Solicite al usuario que ingrese su nombre y edad, luego imprima un mensaje formateado utilizando f-strings.
-  2. Manipule una cadena para contar cuántas veces aparece una letra específica.
-  3. Utilice el método `replace()` para cambiar una palabra en una frase por otra.
+#### El Método `.format()`
+Sintaxis tradicional ampliamente utilizada. Emplea marcadores de posición `{}` dentro de la cadena y asocia las variables en orden como argumentos al final:
+
+```python
+nombre = "Juan"
+print("Hola, {}!".format(nombre))
+```
+
+---
+
+## 📝 Resumen de la Lección
+* Los strings son inmutables; las operaciones generan nuevas cadenas.
+* Poseen métodos potentes para transformar, buscar e inspeccionar contenidos (`upper`, `lower`, `replace`, `find`, etc.).
+* Para segmentar y unir textos se emplean los métodos complementarios `.split()` y `.join()`.
+* Las `f-strings` ofrecen el método de formateo más eficiente y legible.
+
+---
+
+## 🏋️ Desafíos Prácticos
+Consolida tu aprendizaje resolviendo estos problemas:
+
+1. **Formateador de Reportes:** Escribe un script que solicite el nombre de un artículo (`articulo`), su precio unitario (`precio`) y la cantidad comprada (`cantidad`). Imprime una línea formateada usando f-strings que diga:
+   `Reporte: 5 unidades de LAPTOP compradas a $750.00 c/u. Total: $3750.00`
+   *(Asegura que el nombre del artículo se imprima en mayúsculas y los precios muestren dos decimales)*.
+2. **Limpiador de Entrada:** Dado un texto con espaciados irregulares y comas: `"   carlos, ana,  pedro, sofía   "`, escribe el código necesario para limpiar los espacios y transformarlo en una lista limpia de nombres independientes: `['carlos', 'ana', 'pedro', 'sofía']`.
+3. **Buscador de Extensiones:** Crea una función que tome el nombre de un archivo (por ejemplo, `"documento.pdf"` o `"imagen.png"`) y extraiga únicamente la extensión del mismo. Pista: utiliza `.split()` o indexación con `.find()`.

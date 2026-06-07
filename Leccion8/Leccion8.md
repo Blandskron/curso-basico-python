@@ -1,94 +1,81 @@
-## Lección 8: Entrada y Salida
+# Lección 8: Entrada y Salida (Consola y Archivos)
 
-### 1. Entrada de Usuario
+Esta lección cubre las técnicas para interactuar con el usuario a través de la terminal y persistir información en el disco duro mediante la lectura y escritura de archivos físicos.
 
-#### Objetivos
-- Aprender cómo recibir datos del usuario durante la ejecución de un programa.
-- Utilizar la función `input()` para capturar datos desde el teclado.
+---
 
-#### Función `input()`
-- La función `input()` permite al usuario ingresar datos desde la consola.
-- Retorna una cadena de texto que puede ser asignada a una variable.
+## 🎯 Objetivos de Aprendizaje
+Al finalizar esta lección, serás capaz de:
+1. **Capturar** datos por consola y formatear salidas de texto.
+2. **Utilizar** la declaración `with` (Context Manager) para abrir y cerrar archivos de manera segura.
+3. **Comprender** y emplear los distintos modos de apertura de archivos (`r`, `w`, `a`).
+4. **Implementar** control de excepciones (`try-except`) para prevenir errores críticos de lectura/escritura (como archivos inexistentes).
 
-```python
-# Ejemplo de entrada de usuario
-nombre = input("Ingresa tu nombre: ")
-print(f"Hola, {nombre}!")
-```
+---
 
-### 2. Salida de Datos en Consola
+## 📖 Contenido Conceptual
 
-#### Objetivos
-- Comprender cómo imprimir datos en la consola para interactuar con el usuario.
-- Utilizar la función `print()` para mostrar información formateada y resultados.
+### 1. Entrada y Salida por Consola
+* **Entrada (`input`):** Captura la información escrita por teclado en forma de texto (`str`).
+* **Salida (`print`):** Despliega información en pantalla. Permite configurar argumentos opcionales como `sep` (delimitador entre elementos) y `end` (carácter final al imprimir, por defecto un salto de línea `\n`).
 
-#### Función `print()`
-- La función `print()` es utilizada para mostrar datos en la consola.
-- Puede imprimir múltiples valores y realizar formateo básico.
+---
 
-```python
-# Ejemplo de salida en consola
-edad = 25
-print("La edad es:", edad)
-```
+### 2. Persistencia en Archivos de Texto
+Para trabajar con archivos en disco, se utiliza la función integrada `open(ruta, modo)`.
 
-### 3. Archivos: Lectura y Escritura
+#### Modos de Apertura de Archivos
 
-#### Objetivos
-- Explorar cómo interactuar con archivos para leer y escribir datos.
-- Utilizar los modos de apertura de archivos en Python.
+| Modo | Nombre | Descripción |
+| :---: | :--- | :--- |
+| **`r`** | Read (Lectura) | Abre un archivo para lectura. Lanza error si el archivo no existe. (Modo por defecto). |
+| **`w`** | Write (Escritura) | Abre el archivo para escritura. Sobrescribe el contenido existente o crea un archivo nuevo si no existe. |
+| **`a`** | Append (Anexar) | Abre el archivo para añadir información al final de este sin borrar el contenido anterior. Crea el archivo si no existe. |
 
-#### Lectura de Archivos
-- Para abrir y leer un archivo en Python, se usa el modo `'r'`.
+---
+
+### 3. El Gestor de Contexto: Declaración `with`
+En el desarrollo profesional de software, siempre se prefiere abrir archivos utilizando la estructura `with open(...) as alias:`.
 
 ```python
-# Ejemplo de lectura de archivo
-with open("archivo.txt", "r") as archivo:
-    contenido = archivo.read()
-    print(contenido)
+with open("datos.txt", "w") as archivo:
+    archivo.write("Línea de datos")
 ```
 
-#### Escritura en Archivos
-- Para escribir en un archivo, se usa el modo `'w'` (crea uno nuevo) o `'a'` (añade al final).
+> [!IMPORTANT]
+> **Por qué usar `with`:** Si abres un archivo manualmente con `archivo = open(...)` y ocurre un error a mitad de ejecución, el archivo se quedará abierto en el sistema de archivos (bloqueado, consumiendo recursos y pudiendo corromperse). La declaración `with` garantiza el cierre automático y seguro del archivo en cuanto finaliza su bloque indentado, ocurra o no una excepción.
+
+---
+
+### 4. Gestión de Errores de Archivos (`try-except`)
+Las operaciones de lectura y escritura de archivos son propensas a fallar por factores ajenos al código (archivo borrado por el usuario, falta de permisos en la carpeta, disco lleno, etc.).
+
+Para evitar que tu programa deje de funcionar abruptamente, se capturan las excepciones mediante bloques `try-except`:
 
 ```python
-# Ejemplo de escritura en archivo
-with open("salida.txt", "w") as archivo_salida:
-    archivo_salida.write("Datos escritos en el archivo.")
+try:
+    with open("archivo_secreto.txt", "r") as archivo:
+        contenido = archivo.read()
+except FileNotFoundError:
+    print("Error: El archivo especificado no existe en la ruta.")
+except PermissionError:
+    print("Error: No tienes permisos para leer este archivo.")
 ```
 
-### Ejemplos de Código
+---
 
-#### Ejemplo 1: Entrada de Usuario y Salida en Consola
+## 📝 Resumen de la Lección
+* `input()` captura strings y `print()` expone resultados configurando espaciados y finales de línea.
+* La persistencia de datos en Python se realiza con `open()`.
+* Los modos esenciales de archivo son `r` (lectura), `w` (sobrescritura) y `a` (anexar).
+* La instrucción `with` automatiza la liberación de recursos (cierre de archivos) de forma segura.
+* El manejo de excepciones con `try-except` evita fallas de sistema al abrir archivos.
 
-```python
-# Entrada de usuario y salida en consola
-nombre = input("Ingrese su nombre: ")
-edad = input("Ingrese su edad: ")
+---
 
-print(f"Hola, {nombre}! Tu edad es {edad} años.")
-```
+## 🏋️ Desafíos Prácticos
+Lleva a cabo estos ejercicios de persistencia en tu computadora:
 
-#### Ejemplo 2: Lectura y Escritura de Archivos
-
-```python
-# Lectura de archivo
-with open("datos.txt", "r") as archivo_entrada:
-    contenido = archivo_entrada.read()
-    print("Contenido del archivo:")
-    print(contenido)
-
-# Escritura en archivo
-with open("resultados.txt", "w") as archivo_salida:
-    archivo_salida.write("Estos son los resultados obtenidos.")
-    archivo_salida.write("\nSegunda línea de texto.")
-```
-
-### Resumen y Tareas
-
-- Hoy aprendiste sobre cómo interactuar con la entrada y salida en Python.
-- Practicaste la captura de datos del usuario, la impresión de información en consola y la manipulación de archivos.
-- **Tarea:** Crea un programa que:
-  1. Pida al usuario que ingrese su dirección de correo electrónico y lo imprima.
-  2. Lea un archivo de texto existente y cuente cuántas líneas contiene.
-  3. Escriba una lista de nombres en un archivo nuevo, cada nombre en una línea.
+1. **Bitácora Diaria:** Crea un script que pida al usuario una frase o nota personal. Guarda el texto capturado en un archivo llamado `bitacora.txt`. Si el archivo ya tiene contenido, la nueva nota debe agregarse al final en una línea nueva (usa el modo `a`).
+2. **Lector con Estadísticas:** Escribe un programa que lea un archivo de texto llamado `poema.txt`. Si no existe, captura el error de forma segura mostrando un mensaje amigable. Si existe, lee su contenido, muéstralo en pantalla e imprime cuántas líneas y cuántas palabras en total contiene el archivo.
+3. **Copia de Seguridad:** Diseña una función `respaldar_archivo(origen: str, destino: str)` que lea el contenido de un archivo origen y escriba una copia idéntica en el archivo destino.

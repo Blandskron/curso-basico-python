@@ -1,118 +1,77 @@
-## Lección 10: Proyectos Prácticos Básicos
+# Lección 10: Proyectos Prácticos Básicos (Integración)
 
-### 1. Proyecto 1: Calculadora Básica
+Esta lección de cierre está dedicada a integrar todos los conceptos abordados a lo largo del curso (variables, condicionales, ciclos, funciones, manejo de excepciones e importación de librerías) en dos proyectos prácticos interactivos.
 
-#### Objetivos
-- Implementar una calculadora básica que realice operaciones aritméticas simples.
-- Practicar el uso de funciones, entrada de usuario y estructuras de control.
+---
 
-#### Funcionalidades
-- Suma
-- Resta
-- Multiplicación
-- División
+## 🎯 Objetivos de Aprendizaje
+Al finalizar esta lección, serás capaz de:
+1. **Estructurar** programas interactivos basados en consolas uniendo múltiples funciones especializadas.
+2. **Validar** entradas de datos ingresadas por usuarios para prevenir fallas operativas (ej. división por cero).
+3. **Utilizar** loops infinitos controlados (`while True`) para dar continuidad a la interfaz del usuario hasta que este elija salir.
+4. **Implementar** librerías estándar en soluciones reales (como generación de números aleatorios para lógica de juegos).
 
-#### Ejemplo de Implementación
+---
 
-```python
-# Implementación de una calculadora básica en Python
+## 💻 Descripción de los Proyectos Integradores
 
-# Función para sumar dos números
-def suma(num1, num2):
-    return num1 + num2
+### 1. Proyecto 1: Calculadora Interactiva Básica
+El objetivo de este proyecto es construir una herramienta de cálculo de operaciones aritméticas estándar desde consola.
 
-# Función para restar dos números
-def resta(num1, num2):
-    return num1 - num2
+#### Arquitectura del Programa
+El script está estructurado bajo diseño modular, donde cada operación matemática reside en su propia función pura. Esto facilita la adición de operaciones científicas o complejas en el futuro:
 
-# Función para multiplicar dos números
-def multiplicacion(num1, num2):
-    return num1 * num2
-
-# Función para dividir dos números
-def division(num1, num2):
-    if num2 != 0:
-        return num1 / num2
-    else:
-        return "Error: división por cero"
-
-# Función principal para operar la calculadora
-def calculadora():
-    print("Bienvenido a la Calculadora Básica")
-    print("Operaciones disponibles:")
-    print("1. Suma")
-    print("2. Resta")
-    print("3. Multiplicación")
-    print("4. División")
-
-    opcion = input("Elija una operación (1/2/3/4): ")
-
-    num1 = float(input("Ingrese el primer número: "))
-    num2 = float(input("Ingrese el segundo número: "))
-
-    if opcion == '1':
-        print(f"Resultado: {suma(num1, num2)}")
-    elif opcion == '2':
-        print(f"Resultado: {resta(num1, num2)}")
-    elif opcion == '3':
-        print(f"Resultado: {multiplicacion(num1, num2)}")
-    elif opcion == '4':
-        print(f"Resultado: {division(num1, num2)}")
-    else:
-        print("Opción inválida")
-
-# Llamar a la función principal de la calculadora
-calculadora()
+```text
+Calculadora
+├── suma(num1, num2)             --> Retorna suma
+├── resta(num1, num2)            --> Retorna resta
+├── multiplicacion(num1, num2)   --> Retorna producto
+├── division(num1, num2)         --> Retorna cociente (con validación de divisor != 0)
+└── calculadora()                --> Función controladora (menú y entrada de datos)
 ```
+
+> [!NOTE]
+> La función `calculadora()` controla el flujo principal. Despliega la interfaz del menú, solicita las entradas numéricas mediante `input()`, realiza el casteo a `float` y llama a la operación seleccionada aplicando una estructura condicional `if-elif-else`.
+
+---
 
 ### 2. Proyecto 2: Juego de Adivinanza de Números
+El objetivo consiste en desarrollar un juego interactivo de adivinanza de números en el que la computadora genera un número secreto aleatorio y el jugador intenta adivinarlo en una cantidad limitada de intentos, recibiendo pistas ("menor" o "mayor") en cada turno.
 
-#### Objetivos
-- Desarrollar un juego interactivo donde el usuario intente adivinar un número aleatorio.
-- Practicar el uso de bucles, condicionales y generación de números aleatorios.
+#### Lógica del Juego
 
-#### Funcionalidades
-- Generar un número aleatorio entre 1 y 100.
-- Permitir al usuario ingresar números y proporcionar pistas si el número es mayor o menor.
-- Finalizar el juego cuando el usuario adivina correctamente.
-
-#### Ejemplo de Implementación
-
-```python
-# Implementación de un juego de adivinanza de números en Python
-
-import random
-
-# Función principal del juego
-def juego_adivinanza():
-    print("Bienvenido al Juego de Adivinanza de Números")
-    print("Estoy pensando en un número entre 1 y 100...")
-
-    numero_secreto = random.randint(1, 100)
-    intentos = 0
-    max_intentos = 10
-
-    while intentos < max_intentos:
-        intentos += 1
-        intento = int(input("Intenta adivinar el número: "))
-
-        if intento < numero_secreto:
-            print("El número es mayor.")
-        elif intento > numero_secreto:
-            print("El número es menor.")
-        else:
-            print(f"¡Felicidades! Adivinaste el número en {intentos} intentos.")
-            break
-
-    if intentos == max_intentos:
-        print(f"¡Agotaste tus {max_intentos} intentos! El número era {numero_secreto}")
-
-# Llamar a la función principal del juego de adivinanza
-juego_adivinanza()
+```mermaid
+graph TD
+    A([Inicio]) --> B[Generar número secreto entre 1 y 100]
+    B --> C[Inicializar intentos = 0]
+    C --> D{¿Intentos < Límite?}
+    D -- No --> E[Mostrar juego perdido]
+    D -- Sí --> F[Pedir número al jugador]
+    F --> G{¿Es correcto?}
+    G -- Sí --> H[Mostrar felicitación]
+    G -- No --> I{¿Es menor?}
+    I -- Sí --> J[Imprimir 'El número secreto es mayor']
+    I -- No --> K[Imprimir 'El número secreto es menor']
+    J --> L[Incrementar intentos]
+    K --> L
+    L --> D
+    E --> M([Fin])
+    H --> M
 ```
 
-### Resumen y Tareas
+* **Aleatoriedad:** Emplea el método `random.randint(1, 100)` para fijar la meta del juego en cada ejecución.
+* **Control de Ciclos:** Utiliza un ciclo condicional `while` limitado por una constante `max_intentos = 10`. Si el usuario adivina, la instrucción `break` rompe el ciclo e informa la victoria.
 
-- Hoy aprendiste a desarrollar dos proyectos prácticos básicos en Python: una calculadora básica y un juego de adivinanza de números.
-- Practicaste el uso de funciones, estructuras de control y entrada de usuario para crear aplicaciones interactivas.
-- **Tarea:** Elige uno de los proyectos y extiéndelo agregando nuevas funcionalidades, como operaciones adicionales para la calculadora o límites de intentos y mejoras visuales para el juego de adivinanza.
+---
+
+## 🏋️ Desafíos de Expansión (Tu Proyecto de Curso)
+Para obtener el máximo provecho de estos proyectos base, intenta aplicarles las siguientes mejoras localmente:
+
+1. **Calculadora con Historial y Continuidad:** Modifica la calculadora para que:
+   * Funcione dentro de un ciclo `while` para que el usuario pueda realizar múltiples cálculos consecutivos sin reiniciar el script. Agrega una opción de salida (ej. "5. Salir").
+   * Almacene los resultados de las operaciones en una lista llamada `historial` y añade una opción en el menú para consultar las últimas consultas realizadas.
+2. **Niveles de Dificultad para el Juego:** Expande el juego de adivinanzas añadiendo una selección inicial de dificultad:
+   * **Fácil:** Rango de 1 a 50 con 10 intentos.
+   * **Medio:** Rango de 1 a 100 con 7 intentos.
+   * **Difícil:** Rango de 1 a 200 con 5 intentos.
+3. **Resistencia a Fallos (Robustez):** Modifica ambos scripts para que, si el usuario introduce letras en lugar de números en el teclado, el programa no falle con un error de tipo `ValueError`. Implementa bloques `try-except` para solicitar el dato de nuevo hasta que sea un número válido.

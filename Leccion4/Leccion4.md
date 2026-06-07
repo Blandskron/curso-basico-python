@@ -1,153 +1,92 @@
-## Lección 4: Funciones
+# Lección 4: Funciones en Python
 
-### 1. Definición y Llamada a Funciones
+Esta lección enseña la importancia de modularizar y organizar el código en bloques lógicos reutilizables mediante la declaración y el uso de funciones.
 
-#### Objetivos
-- Entender qué es una función y por qué es útil.
-- Aprender a definir y llamar funciones en Python.
+---
 
-#### ¿Qué es una Función?
-- Una función es un bloque de código reutilizable que realiza una tarea específica.
-- Ayuda a organizar y estructurar el código, facilitando la legibilidad y el mantenimiento.
+## 🎯 Objetivos de Aprendizaje
+Al finalizar esta lección, serás capaz de:
+1. **Declarar** e invocar funciones personalizadas utilizando la palabra clave `def`.
+2. **Gestionar** el paso de parámetros, incluyendo argumentos obligatorios, posicionales y parámetros por defecto.
+3. **Controlar** el retorno de valores simples y múltiples utilizando la palabra clave `return`.
+4. **Comprender** el ámbito de las variables (ámbito local vs. ámbito global).
+5. **Aplicar** buenas prácticas de documentación de funciones utilizando Docstrings.
 
-#### Definición de Funciones
-- Se define una función usando la palabra clave `def` seguida del nombre de la función y paréntesis `()`.
-- El cuerpo de la función se indenta.
+---
 
-```python
-# Ejemplo de definición de una función
-def saludar():
-    print("Hola, Mundo")
+## 📖 Contenido Conceptual
 
-# Llamada a la función
-saludar()
-```
+### 1. ¿Qué es una Función?
+Una función es un bloque de código organizado y reutilizable que se diseña para realizar una única tarea específica. Las funciones ayudan a evitar la repetición de código (filosofía DRY: *Don't Repeat Yourself*) y facilitan las tareas de depuración y prueba.
 
-### 2. Parámetros y Valores de Retorno
-
-#### Parámetros de Función
-- Los parámetros permiten a una función recibir información y usarla dentro de su cuerpo.
-- Los parámetros se definen dentro de los paréntesis en la definición de la función.
+#### Anatomía de una Función en Python
 
 ```python
-# Ejemplo de función con parámetros
-def saludar(nombre):
-    print("Hola,", nombre)
-
-# Llamada a la función con un argumento
-saludar("Juan")
-```
-
-#### Valores de Retorno
-- Las funciones pueden devolver valores usando la palabra clave `return`.
-- Esto permite que la función envíe resultados de vuelta al lugar donde fue llamada.
-
-```python
-# Ejemplo de función con valor de retorno
-def sumar(a, b):
-    resultado = a + b
+def nombre_de_la_funcion(parametro1, parametro2):
+    """
+    Docstring: Descripción breve de lo que hace la función.
+    """
+    # Cuerpo de la función (Bloque indentado)
+    resultado = parametro1 + parametro2
     return resultado
-
-# Llamada a la función y uso del valor de retorno
-suma = sumar(3, 5)
-print("La suma es:", suma)
 ```
 
-### Ejemplos de Funciones
+* **`def`:** Palabra clave que inicia la declaración.
+* **Nombre de la función:** Identificador de la función (se recomienda usar minúsculas y guiones bajos: snake_case).
+* **Parámetros:** Variables entre paréntesis que reciben los argumentos al invocar la función (opcional).
+* **Cuerpo de la función:** Bloque indentado que contiene la lógica.
+* **`return`:** Devuelve un valor al punto donde se llamó la función e interrumpe de inmediato su ejecución (opcional, si se omite, la función devuelve `None`).
 
-#### Función sin Parámetros y sin Retorno
+---
+
+### 2. Parámetros por Defecto
+Python permite asignar valores predeterminados a los parámetros en la firma de la función. Si al invocar la función se omite dicho argumento, se usará el valor por defecto configurado.
 
 ```python
-def mostrar_mensaje():
-    print("Este es un mensaje desde una función.")
-
-mostrar_mensaje()
+def saludar(nombre, saludo="Hola"):
+    print(f"{saludo}, {nombre}!")
 ```
 
-#### Función con Parámetros y sin Retorno
+> [!WARNING]
+> Todos los parámetros que tengan valores por defecto deben colocarse **al final** de la lista de parámetros en la firma de la función. De lo contrario, Python lanzará un error de sintaxis (`SyntaxError: non-default argument follows default argument`).
+
+---
+
+### 3. Ámbito de las Variables (Scope)
+El lugar del código donde declaras una variable determina su ciclo de vida y visibilidad:
+
+* **Ámbito Local:** Variables definidas dentro de una función. Solo existen y pueden ser accedidas mientras la función se está ejecutando.
+* **Ámbito Global:** Variables definidas en el cuerpo principal del script. Son accesibles desde cualquier lugar del archivo, incluso dentro de las funciones.
+
+> [!TIP]
+> Intenta evitar el uso de variables globales dentro de tus funciones. Es una mejor práctica pasar la información necesaria explícitamente a través de parámetros y retornar los resultados requeridos.
+
+---
+
+### 4. Introducción a Type Hints (Anotaciones de Tipo)
+Aunque Python es un lenguaje de tipado dinámico, la documentación profesional actual promueve el uso de anotaciones de tipo para mejorar la legibilidad y ayudar a las herramientas de desarrollo a detectar errores:
 
 ```python
-def mostrar_nombre(nombre):
-    print("Tu nombre es:", nombre)
-
-mostrar_nombre("María")
+def duplicar_numero(numero: float) -> float:
+    return numero * 2
 ```
+* `: float` indica que el parámetro esperado es un número flotante.
+* `-> float` indica que la función retornará un valor flotante.
 
-#### Función con Parámetros y con Retorno
+---
 
-```python
-def multiplicar(x, y):
-    return x * y
+## 📝 Resumen de la Lección
+* Las funciones se definen con `def` y estructuran el código para evitar repeticiones.
+* Los parámetros permiten ingresar información externa a la función, y `return` envía de vuelta un resultado procesado.
+* Los parámetros por defecto se declaran al final de la firma.
+* Las variables declaradas dentro de una función son locales a la misma.
+* Se aconseja documentar las funciones usando Docstrings explicativos.
 
-resultado = multiplicar(4, 5)
-print("El resultado de la multiplicación es:", resultado)
-```
+---
 
-#### Función con Parámetros por Defecto
+## 🏋️ Desafíos Prácticos
+Prueba a resolver los siguientes retos prácticos escribiendo funciones en tu computadora:
 
-```python
-def saludar(nombre="Amigo"):
-    print("Hola,", nombre)
-
-saludar()        # Usa el valor por defecto
-saludar("Ana")   # Usa el valor proporcionado
-```
-
-### Ejercicios Prácticos
-
-#### Ejercicio 1: Función de Conversión de Grados Celsius a Fahrenheit
-
-```python
-def celsius_a_fahrenheit(celsius):
-    return celsius * 9/5 + 32
-
-# Pedir al usuario la temperatura en grados Celsius
-temp_celsius = float(input("Introduce la temperatura en grados Celsius: "))
-
-# Convertir y mostrar la temperatura en grados Fahrenheit
-temp_fahrenheit = celsius_a_fahrenheit(temp_celsius)
-print("La temperatura en grados Fahrenheit es:", temp_fahrenheit)
-```
-
-#### Ejercicio 2: Función para Encontrar el Máximo de Dos Números
-
-```python
-def encontrar_maximo(a, b):
-    if a > b:
-        return a
-    else:
-        return b
-
-# Pedir al usuario dos números
-numero1 = float(input("Introduce el primer número: "))
-numero2 = float(input("Introduce el segundo número: "))
-
-# Encontrar y mostrar el mayor de los dos números
-maximo = encontrar_maximo(numero1, numero2)
-print("El número mayor es:", maximo)
-```
-
-#### Ejercicio 3: Función para Calcular el Factorial de un Número
-
-```python
-def factorial(n):
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n-1)
-
-# Pedir al usuario un número
-numero = int(input("Introduce un número para calcular su factorial: "))
-
-# Calcular y mostrar el factorial
-resultado_factorial = factorial(numero)
-print("El factorial de", numero, "es:", resultado_factorial)
-```
-
-### Resumen y Tareas
-- Hoy aprendiste sobre funciones en Python: cómo definirlas, llamarlas, usar parámetros y valores de retorno.
-- Practicaste con varios ejemplos de funciones.
-- **Tarea:** Crea un programa que:
-  1. Defina una función que reciba una lista de números y devuelva la suma de todos los elementos.
-  2. Defina una función que reciba una cadena y devuelva la cantidad de vocales en la cadena.
-  3. Defina una función que reciba una lista de cadenas y devuelva la cadena más larga.
+1. **Calculadora de IMC:** Escribe una función llamada `calcular_imc(peso: float, altura: float) -> float` que retorne el índice de masa corporal ($IMC = \frac{peso}{altura^2}$).
+2. **Contador de Palabras:** Diseña una función que reciba una cadena de texto y devuelva el número total de palabras contenidas en ella.
+3. **Conversor de Moneda:** Escribe una función que convierta una cantidad en dólares a euros. Permite un parámetro opcional `tasa_cambio` que tenga un valor por defecto de `0.92`.

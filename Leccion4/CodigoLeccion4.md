@@ -1,63 +1,99 @@
-### Ejemplo 1: Función sin Parámetros y sin Retorno
+# Guía Práctica de Código: Lección 4 (Funciones)
 
+Esta guía recopila y explica los scripts prácticos correspondientes a la **Lección 4**, abarcando desde funciones elementales hasta implementaciones algorítmicas específicas.
+
+---
+
+## 📋 Índice de Ejemplos y Archivos
+
+| Archivo Ejecutable | Concepto que Ilustra | Comando de Ejecución |
+| :--- | :--- | :--- |
+| `01_FuncionsinParametrodysinRetorno.py` | Función básica sin datos de entrada/salida | `python 01_FuncionsinParametrodysinRetorno.py` |
+| `02_FuncionconParametrosysinRetorno.py` | Parámetros obligatorios sin retorno | `python 02_FuncionconParametrosysinRetorno.py` |
+| `03_FuncionconParametrosyconRetorno.py` | Uso de parámetros y cláusula `return` | `python 03_FuncionconParametrosyconRetorno.py` |
+| `04_FuncionconParametrosporDefecto.py` | Declaración de argumentos predeterminados | `python 04_FuncionconParametrosporDefecto.py` |
+| `05_FunciondeConversiondeGradosCelsiusaFahrenheit.py` | Conversor de escalas térmicas | `python 05_FunciondeConversiondeGradosCelsiusaFahrenheit.py` |
+| `06_FuncionparaEncontrarelMaximodeDosNumeros.py` | Condicionales dentro de funciones | `python 06_FuncionparaEncontrarelMaximodeDosNumeros.py` |
+| `07_FuncionparaCalcularelFactorialdeunNumero.py` | Bucle iterativo de cálculo factorial | `python 07_FuncionparaCalcularelFactorialdeunNumero.py` |
+| `08_FuncionqueRecibeunaListadeNumerosyDevuelvelaSumadeTodoslosElementos.py` | Acumulador de listas mediante ciclos | `python 08_FuncionqueRecibeunaListadeNumerosyDevuelvelaSumadeTodoslosElementos.py` |
+| `09_FuncionqueRecibeunaCadenayDevuelvelaCantidaddeVocalesenlaCadena.py` | Conteo de caracteres condicional | `python 09_FuncionqueRecibeunaCadenayDevuelvelaCantidaddeVocalesenlaCadena.py` |
+| `10_FuncionqueRecibeunaListadeCadenasyDevuelvelaCadenaMasLarga.py` | Comparador iterativo de longitud de texto | `python 10_FuncionqueRecibeunaListadeCadenasyDevuelvelaCadenaMasLarga.py` |
+
+---
+
+## 🔍 Explicación Detallada de los Ejemplos
+
+### Ejemplo 1: Función sin Parámetro y sin Retorno (`01_FuncionsinParametrodysinRetorno.py`)
 ```python
-def mostrar_mensaje():
-    print("Este es un mensaje desde una función.")
+def saludar():
+    print("Hola, Mundo")
 
-# Llamada a la función
-mostrar_mensaje()
-```
-
-### Ejemplo 2: Función con Parámetros y sin Retorno
-
-```python
-def mostrar_nombre(nombre):
-    print("Tu nombre es:", nombre)
-
-# Llamada a la función con un argumento
-mostrar_nombre("María")
-```
-
-### Ejemplo 3: Función con Parámetros y con Retorno
-
-```python
-def multiplicar(x, y):
-    return x * y
-
-# Llamada a la función y uso del valor de retorno
-resultado = multiplicar(4, 5)
-print("El resultado de la multiplicación es:", resultado)
-```
-
-### Ejemplo 4: Función con Parámetros por Defecto
-
-```python
-def saludar(nombre="Amigo"):
-    print("Hola,", nombre)
-
-# Llamada a la función sin argumentos (usa el valor por defecto)
 saludar()
-
-# Llamada a la función con un argumento
-saludar("Ana")
 ```
+* **Explicación:** Una función simple que ejecuta un `print` cuando es llamada. No requiere argumentos ni devuelve ningún valor.
+* **Salida:** `Hola, Mundo`
 
-### Ejemplo 5: Función de Conversión de Grados Celsius a Fahrenheit
+---
 
+### Ejemplo 2: Función con Parámetros y sin Retorno (`02_FuncionconParametrosysinRetorno.py`)
+```python
+def saludar_usuario(nombre):
+    print("Hola, " + nombre + "!")
+
+saludar_usuario("Juan")
+```
+* **Explicación:** Recibe la variable `nombre` e imprime un saludo concatenado.
+* **Salida:** `Hola, Juan!`
+
+---
+
+### Ejemplo 3: Función con Parámetros y con Retorno (`03_FuncionconParametrosyconRetorno.py`)
+```python
+def sumar(a, b):
+    return a + b
+
+resultado = sumar(5, 3)
+print(resultado)
+```
+* **Explicación:** La función realiza la suma y devuelve el resultado al llamador mediante `return`.
+* **Salida:** `8`
+
+---
+
+### Ejemplo 4: Función con Parámetros por Defecto (`04_FuncionconParametrosporDefecto.py`)
+```python
+def saludar(nombre, saludo="Hola"):
+    print(saludo + ", " + nombre + "!")
+
+saludar("Juan")
+saludar("Juan", "Buenos días")
+```
+* **Explicación:** Si omitimos el segundo argumento, la función utiliza `"Hola"`.
+* **Salida:**
+  ```text
+  Hola, Juan!
+  Buenos días, Juan!
+  ```
+
+---
+
+### Ejemplo 5: Conversión de Grados Celsius a Fahrenheit (`05_FunciondeConversiondeGradosCelsiusaFahrenheit.py`)
 ```python
 def celsius_a_fahrenheit(celsius):
-    return celsius * 9/5 + 32
+    return (celsius * 9/5) + 32
 
-# Pedir al usuario la temperatura en grados Celsius
-temp_celsius = float(input("Introduce la temperatura en grados Celsius: "))
-
-# Convertir y mostrar la temperatura en grados Fahrenheit
-temp_fahrenheit = celsius_a_fahrenheit(temp_celsius)
-print("La temperatura en grados Fahrenheit es:", temp_fahrenheit)
+print(celsius_a_fahrenheit(0))
+print(celsius_a_fahrenheit(100))
 ```
+* **Salida:**
+  ```text
+  32.0
+  212.0
+  ```
 
-### Ejemplo 6: Función para Encontrar el Máximo de Dos Números
+---
 
+### Ejemplo 6: Encontrar el Máximo de Dos Números (`06_FuncionparaEncontrarelMaximodeDosNumeros.py`)
 ```python
 def encontrar_maximo(a, b):
     if a > b:
@@ -65,51 +101,42 @@ def encontrar_maximo(a, b):
     else:
         return b
 
-# Pedir al usuario dos números
-numero1 = float(input("Introduce el primer número: "))
-numero2 = float(input("Introduce el segundo número: "))
-
-# Encontrar y mostrar el mayor de los dos números
-maximo = encontrar_maximo(numero1, numero2)
-print("El número mayor es:", maximo)
+print(encontrar_maximo(10, 20))
 ```
+* **Salida:** `20`
 
-### Ejemplo 7: Función para Calcular el Factorial de un Número
+---
 
+### Ejemplo 7: Calcular el Factorial de un Número (`07_FuncionparaCalcularelFactorialdeunNumero.py`)
 ```python
 def factorial(n):
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n-1)
+    resultado = 1
+    for i in range(1, n + 1):
+        resultado *= i
+    return resultado
 
-# Pedir al usuario un número
-numero = int(input("Introduce un número para calcular su factorial: "))
-
-# Calcular y mostrar el factorial
-resultado_factorial = factorial(numero)
-print("El factorial de", numero, "es:", resultado_factorial)
+print(factorial(5))
 ```
+* **Explicación:** Calcula $5! = 5 \times 4 \times 3 \times 2 \times 1$.
+* **Salida:** `120`
 
-### Ejercicio 8: Función que Recibe una Lista de Números y Devuelve la Suma de Todos los Elementos
+---
 
+### Ejemplo 8: Suma de Todos los Elementos de una Lista (`08_FuncionqueRecibeunaListadeNumerosyDevuelvelaSumadeTodoslosElementos.py`)
 ```python
-def suma_lista(numeros):
-    total = 0
+def sumar_lista(numeros):
+    suma = 0
     for numero in numeros:
-        total += numero
-    return total
+        suma += numero
+    return suma
 
-# Lista de números
-numeros = [1, 2, 3, 4, 5]
-
-# Calcular y mostrar la suma de los números en la lista
-suma = suma_lista(numeros)
-print("La suma de los números en la lista es:", suma)
+print(sumar_lista([1, 2, 3, 4, 5]))
 ```
+* **Salida:** `15`
 
-### Ejercicio 9: Función que Recibe una Cadena y Devuelve la Cantidad de Vocales en la Cadena
+---
 
+### Ejemplo 9: Cantidad de Vocales en una Cadena (`09_FuncionqueRecibeunaCadenayDevuelvelaCantidaddeVocalesenlaCadena.py`)
 ```python
 def contar_vocales(cadena):
     vocales = "aeiouAEIOU"
@@ -119,16 +146,14 @@ def contar_vocales(cadena):
             contador += 1
     return contador
 
-# Cadena de ejemplo
-cadena = "Hola, Mundo"
-
-# Calcular y mostrar la cantidad de vocales en la cadena
-cantidad_vocales = contar_vocales(cadena)
-print("La cantidad de vocales en la cadena es:", cantidad_vocales)
+print(contar_vocales("Hola, Mundo"))
 ```
+* **Explicación:** Recorre el texto comprobando si cada letra pertenece al conjunto de vocales definidas.
+* **Salida:** `4` (o, a, u, o)
 
-### Ejercicio 10: Función que Recibe una Lista de Cadenas y Devuelve la Cadena Más Larga
+---
 
+### Ejemplo 10: Encontrar la Cadena Más Larga (`10_FuncionqueRecibeunaListadeCadenasyDevuelvelaCadenaMasLarga.py`)
 ```python
 def cadena_mas_larga(cadenas):
     mas_larga = ""
@@ -137,10 +162,7 @@ def cadena_mas_larga(cadenas):
             mas_larga = cadena
     return mas_larga
 
-# Lista de cadenas
-cadenas = ["manzana", "banana", "cereza", "kiwi"]
-
-# Encontrar y mostrar la cadena más larga
-larga = cadena_mas_larga(cadenas)
-print("La cadena más larga es:", larga)
+print(cadena_mas_larga(["hola", "mundo", "programacion", "python"]))
 ```
+* **Explicación:** Compara iterativamente el tamaño (`len()`) de cada cadena contra el valor más largo guardado.
+* **Salida:** `programacion`

@@ -1,112 +1,91 @@
-## Lección 3: Estructuras de Control
+# Lección 3: Estructuras de Control (Condicionales y Ciclos)
 
-### 1. Condicionales: if, elif, else
+Esta lección aborda el control del flujo de ejecución de tus programas. Aprenderás a tomar decisiones lógicas y a repetir tareas de manera eficiente mediante bucles.
 
-#### Objetivos
-- Entender cómo usar estructuras condicionales para tomar decisiones en el código.
-- Aprender a utilizar `if`, `elif` y `else` para manejar múltiples condiciones.
+---
 
-#### Uso de Condicionales
+## 🎯 Objetivos de Aprendizaje
+Al finalizar esta lección, serás capaz de:
+1. **Evaluar** expresiones condicionales usando `if`, `elif` y `else`.
+2. **Implementar** bucles definidos con `for` y bucles condicionales con `while`.
+3. **Controlar** el flujo interno de los bucles usando las sentencias `break` y `continue`.
+4. **Comprender** la importancia de la indentación como delimitador de bloques en Python.
 
-##### Estructura `if`
-- La estructura `if` se usa para ejecutar un bloque de código si una condición es verdadera.
+---
 
-```python
-# Ejemplo de uso de if
-edad = 18
+## 📖 Contenido Conceptual
 
-if edad >= 18:
-    print("Eres mayor de edad.")
+### 1. Condicionales: Toma de Decisiones
+Los condicionales evalúan una o más expresiones booleanas. Según el resultado (`True` o `False`), el flujo del programa tomará un camino u otro.
+
+#### El Bloque `if-else`
+El flujo básico de decisiones se puede representar visualmente de la siguiente manera:
+
+```mermaid
+graph TD
+    A([Inicio]) --> B{¿Condición es True?}
+    B -- Sí --> C[Ejecutar bloque del IF]
+    B -- No --> D[Ejecutar bloque del ELSE]
+    C --> E([Fin])
+    D --> E
 ```
 
-##### Estructura `if-else`
-- La estructura `if-else` se usa para ejecutar un bloque de código si una condición es verdadera y otro bloque si es falsa.
+* **`if`:** Evalúa la expresión inicial. Si es verdadera, ejecuta su bloque.
+* **`elif` (abreviatura de *else if*):** Evalúa condiciones adicionales de forma secuencial si las anteriores fueron falsas.
+* **`else`:** Se ejecuta opcionalmente cuando ninguna de las condiciones previas fue verdadera.
+
+> [!IMPORTANT]
+> **La Indentación en Python:** A diferencia de lenguajes que usan llaves `{}` para delimitar bloques de código, Python utiliza la **indentación** (sangría de 4 espacios por convención). Si no respetas la alineación, Python arrojará un error de tipo `IndentationError`.
+
+---
+
+### 2. Ciclos o Bucles: Repetición de Código
+
+#### Ciclo `for`
+El bucle `for` se utiliza para iterar sobre una secuencia predefinida (elementos de una lista, caracteres de una cadena o un rango numérico).
 
 ```python
-# Ejemplo de uso de if-else
-edad = 16
-
-if edad >= 18:
-    print("Eres mayor de edad.")
-else:
-    print("Eres menor de edad.")
+for elemento in secuencia:
+    # Código a repetir
 ```
 
-##### Estructura `if-elif-else`
-- La estructura `if-elif-else` se usa para manejar múltiples condiciones.
+> [!TIP]
+> La función `range(inicio, fin, paso)` es de gran utilidad en ciclos `for`. Genera una secuencia de números enteros que comienza en `inicio` (por defecto 0), finaliza justo antes de `fin` (límite exclusivo) y avanza según el `paso` configurado.
 
-```python
-# Ejemplo de uso de if-elif-else
-edad = 20
+#### Ciclo `while`
+El bucle `while` repite un bloque de código mientras se cumpla una determinada condición lógica.
 
-if edad < 13:
-    print("Eres un niño.")
-elif edad < 18:
-    print("Eres un adolescente.")
-else:
-    print("Eres un adulto.")
+```mermaid
+graph TD
+    A([Inicio]) --> B{¿Condición es True?}
+    B -- Sí --> C[Ejecutar Bloque del While]
+    C --> B
+    B -- No --> D([Fin del Bucle])
 ```
 
-### 2. Ciclos: for, while
+> [!WARNING]
+> **Bucles Infinitos:** Si la condición de un bucle `while` nunca se vuelve falsa, el programa se ejecutará infinitamente y se colgará. Asegúrate de incluir instrucciones dentro del bucle que acerquen la condición hacia su finalización (como incrementar un contador).
 
-#### Objetivos
-- Entender cómo usar ciclos para repetir bloques de código.
-- Aprender a utilizar los ciclos `for` y `while` para iterar sobre secuencias y ejecutar bloques de código repetidamente.
+---
 
-#### Uso del Ciclo `for`
-- El ciclo `for` se usa para iterar sobre una secuencia (como una lista, tupla, cadena o rango).
+### 3. Control de Ciclos: `break` y `continue`
+* **`break`:** Interrumpe la ejecución del ciclo de manera inmediata y transfiere el flujo a la siguiente línea fuera del bucle.
+* **`continue`:** Detiene la iteración actual y salta de inmediato a la siguiente comprobación de condición del ciclo.
 
-```python
-# Ejemplo de uso de for con una lista
-frutas = ["manzana", "banana", "cereza"]
+---
 
-for fruta in frutas:
-    print(fruta)
-```
+## 📝 Resumen de la Lección
+* Las bifurcaciones con `if`, `elif` y `else` desvían el flujo según la veracidad de condiciones.
+* La indentación es obligatoria y define los límites de los bloques en Python.
+* El ciclo `for` es ideal cuando conocemos de antemano el número de iteraciones (secuencias o rangos).
+* El ciclo `while` repite el código según el estado de una condición que debe ser modificable.
+* Las palabras clave `break` y `continue` otorgan un control granular de salida e iteración.
 
-- Uso de `range` en un ciclo `for`.
+---
 
-```python
-# Ejemplo de uso de for con range
-for i in range(5):
-    print(i)
-```
+## 🏋️ Desafíos Prácticos
+Prueba tus conocimientos diseñando y ejecutando los siguientes ejercicios:
 
-#### Uso del Ciclo `while`
-- El ciclo `while` se usa para repetir un bloque de código mientras una condición sea verdadera.
-
-```python
-# Ejemplo de uso de while
-contador = 0
-
-while contador < 5:
-    print(contador)
-    contador += 1
-```
-
-#### Control de Ciclos
-- Uso de `break` para salir de un ciclo.
-- Uso de `continue` para saltar a la siguiente iteración del ciclo.
-
-```python
-# Ejemplo de uso de break
-for i in range(10):
-    if i == 5:
-        break
-    print(i)
-
-# Ejemplo de uso de continue
-for i in range(10):
-    if i % 2 == 0:
-        continue
-    print(i)
-```
-
-### Resumen y Tareas
-- Hoy aprendiste sobre estructuras condicionales y ciclos en Python.
-- Practicaste cómo usar `if`, `elif`, `else` para tomar decisiones en el código.
-- Practicaste cómo usar los ciclos `for` y `while` para repetir bloques de código.
-- **Tarea:** Crea un programa que:
-  1. Pida al usuario un número y determine si es positivo, negativo o cero.
-  2. Use un ciclo `for` para imprimir los números del 1 al 10.
-  3. Use un ciclo `while` para pedir al usuario un número y continuar pidiéndolo hasta que el usuario introduzca un número negativo.
+1. **Clasificador de Calificaciones:** Escribe un script que solicite una nota numérica del 1 al 100. Imprime "Excelente" si es >= 90, "Bueno" si está entre 70 y 89, y "Reprobado" si es menor a 70.
+2. **Sumatoria Dinámica:** Diseña un programa que pida números enteros al usuario y los sume acumulativamente. El programa debe detenerse inmediatamente cuando el usuario escriba el número `0` (utilizando `break`), mostrando la suma total.
+3. **Filtrador de Pares:** Usa un ciclo `for` y la instrucción `continue` para imprimir todos los números impares que se encuentran entre el 1 y el 20.

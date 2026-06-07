@@ -1,155 +1,100 @@
-## Lección 5: Listas y Tuplas
+# Lección 5: Listas y Tuplas (Colecciones de Datos)
 
-### 1. Listas
+Esta lección introduce el concepto de estructuras de datos secuenciales, enfocándose en las similitudes, diferencias y casos de uso de las Listas y las Tuplas.
 
-#### Objetivos
-- Entender qué son las listas y cómo se utilizan en Python.
-- Aprender a crear, manipular y acceder a elementos y sublistas.
+---
 
-#### Creación de Listas
-- Las listas en Python son colecciones ordenadas y mutables de elementos.
-- Se definen usando corchetes `[]`.
+## 🎯 Objetivos de Aprendizaje
+Al finalizar esta lección, serás capaz de:
+1. **Crear y manipular** listas dinámicas (mutables) y tuplas (inmutables).
+2. **Acceder** a elementos individuales utilizando indexación positiva y negativa.
+3. **Extraer** porciones de colecciones mediante rebanado o corte (Slicing).
+4. **Distinguir** cuándo es óptimo usar una lista frente a una tupla basándote en la mutabilidad y el rendimiento.
 
-```python
-# Crear una lista vacía
-lista_vacia = []
+---
 
-# Crear una lista con elementos
-lista_frutas = ["manzana", "banana", "cereza"]
-```
+## 📖 Contenido Conceptual
 
-#### Manipulación de Listas
-- Las listas pueden contener elementos de cualquier tipo y los elementos pueden ser modificados.
+### 1. Listas (Mutables)
+Una lista es una colección ordenada y modificable de elementos. En Python, se definen delimitando los elementos con corchetes `[]` y separándolos por comas. Pueden almacenar múltiples tipos de datos simultáneamente.
 
 ```python
-# Agregar elementos a una lista
-lista_frutas.append("naranja")
-print(lista_frutas)  # Salida: ['manzana', 'banana', 'cereza', 'naranja']
-
-# Eliminar un elemento de una lista
-lista_frutas.remove("banana")
-print(lista_frutas)  # Salida: ['manzana', 'cereza', 'naranja']
-
-# Modificar un elemento de una lista
-lista_frutas[1] = "fresa"
-print(lista_frutas)  # Salida: ['manzana', 'fresa', 'naranja']
+mi_lista = [10, "Python", True, 3.14]
 ```
 
-### 2. Acceso a Elementos y Sublistas
+#### Características Clave
+* **Ordenadas:** El orden de inserción se mantiene de manera estricta.
+* **Mutables:** Es posible modificar, añadir, reordenar o eliminar sus elementos una vez creada.
 
-#### Acceso a Elementos
-- Los elementos de una lista se pueden acceder usando índices, comenzando desde 0.
+---
+
+### 2. Tuplas (Inmutables)
+Una tupla es una colección ordenada e **inmodificable**. Se definen encerrando sus valores entre paréntesis `()`.
 
 ```python
-# Acceder al primer elemento
-print(lista_frutas[0])  # Salida: 'manzana'
-
-# Acceder al último elemento
-print(lista_frutas[-1])  # Salida: 'naranja'
+mi_tupla = (10, "Python", True, 3.14)
 ```
 
-#### Sublistas
-- Se pueden extraer sublistas usando el operador de slicing `:`.
+#### Características Clave
+* **Inmutables:** Una vez definida una tupla, no se puede alterar su contenido (no se pueden añadir, eliminar o reescribir elementos).
+* **Eficiencia:** Al ser de tamaño fijo, consumen menos memoria en el sistema y se procesan más rápido que las listas.
+
+#### Comparativa Rápida
+
+| Propiedad | Listas (`list`) | Tuplas (`tuple`) |
+| :--- | :---: | :---: |
+| **Sintaxis** | Corchetes `[]` | Paréntesis `()` |
+| **Mutable** | Sí | No |
+| **Uso común** | Colección homogénea que cambia con el tiempo | Datos fijos, registros (ej. coordenadas `(x, y)`) |
+| **Rendimiento** | Más lento en memoria | Más rápido en memoria |
+
+---
+
+### 3. Sistemas de Indexación y Rebanado (Slicing)
+
+#### Indexación Positiva y Negativa
+Python asigna un índice de posición a cada elemento de la colección, permitiendo acceder desde el inicio (comenzando en `0`) o desde el final (utilizando números negativos comenzando en `-1`).
+
+| Elemento | `'P'` | `'y'` | `'t'` | `'h'` | `'o'` | `'n'` |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Índice Positivo** | 0 | 1 | 2 | 3 | 4 | 5 |
+| **Índice Negativo** | -6 | -5 | -4 | -3 | -2 | -1 |
+
+#### Rebanado o Slicing
+El rebanado nos permite extraer subconjuntos de datos a partir de una secuencia utilizando la nomenclatura `coleccion[inicio:fin:paso]`.
 
 ```python
-# Extraer una sublista
-sublista = lista_frutas[0:2]
-print(sublista)  # Salida: ['manzana', 'fresa']
+numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Extraer del índice 2 al 5 (excluyente)
+print(numeros[2:5])  # Salida: [2, 3, 4]
+
+# Extraer con saltos de paso 2
+print(numeros[::2])  # Salida: [0, 2, 4, 6, 8]
+
+# Invertir una lista completa
+print(numeros[::-1])  # Salida: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 ```
 
-### 3. Tuplas
+> [!TIP]
+> Si omites `inicio`, Python asumirá el comienzo (índice 0). Si omites `fin`, asumirá el final del contenedor.
 
-#### Objetivos
-- Entender qué son las tuplas y cómo se utilizan en Python.
-- Aprender las diferencias entre listas y tuplas.
+---
 
-#### Creación de Tuplas
-- Las tuplas en Python son colecciones ordenadas e inmutables de elementos.
-- Se definen usando paréntesis `()`.
+## 📝 Resumen de la Lección
+* Las listas (`list`) se definen con corchetes `[]` y son dinámicas/mutables.
+* Las tuplas (`tuple`) se definen con paréntesis `()` y son estáticas/inmutables.
+* Los índices positivos van de `0` a `longitud - 1`, mientras que los negativos van de `-1` a `-longitud`.
+* El Slicing `[start:stop:step]` es una técnica muy potente para segmentar y manipular subcolecciones.
 
-```python
-# Crear una tupla vacía
-tupla_vacia = ()
+---
 
-# Crear una tupla con elementos
-tupla_frutas = ("manzana", "banana", "cereza")
-```
+## 🏋️ Desafíos Prácticos
+Completa los siguientes ejercicios aplicando las técnicas de esta sesión:
 
-#### Manipulación de Tuplas
-- A diferencia de las listas, las tuplas no pueden ser modificadas después de su creación.
-
-```python
-# Acceder a elementos de una tupla
-print(tupla_frutas[0])  # Salida: 'manzana'
-
-# Intentar modificar una tupla (esto generará un error)
-# tupla_frutas[1] = "fresa"  # Error: 'tuple' object does not support item assignment
-```
-
-### Diferencias entre Listas y Tuplas
-
-| Característica       | Listas                     | Tuplas                    |
-|----------------------|----------------------------|---------------------------|
-| Mutabilidad          | Mutables                   | Inmutables                |
-| Sintaxis             | Corchetes `[]`             | Paréntesis `()`           |
-| Modificable          | Sí                         | No                        |
-| Uso                  | Colecciones de elementos   | Colecciones de elementos  |
-| Ejemplos de Uso      | Pueden cambiarse frecuentemente | Datos constantes           |
-
-### Ejemplos de Código
-
-#### Ejemplo 1: Creación y Manipulación de Listas
-
-```python
-# Crear una lista
-numeros = [1, 2, 3, 4, 5]
-
-# Agregar un elemento
-numeros.append(6)
-print(numeros)  # Salida: [1, 2, 3, 4, 5, 6]
-
-# Eliminar un elemento
-numeros.remove(3)
-print(numeros)  # Salida: [1, 2, 4, 5, 6]
-
-# Modificar un elemento
-numeros[2] = 10
-print(numeros)  # Salida: [1, 2, 10, 5, 6]
-```
-
-#### Ejemplo 2: Acceso a Elementos y Sublistas
-
-```python
-# Crear una lista
-animales = ["perro", "gato", "conejo", "tortuga"]
-
-# Acceder al primer y último elemento
-print(animales[0])  # Salida: 'perro'
-print(animales[-1])  # Salida: 'tortuga'
-
-# Extraer una sublista
-sublista_animales = animales[1:3]
-print(sublista_animales)  # Salida: ['gato', 'conejo']
-```
-
-#### Ejemplo 3: Creación y Acceso a Elementos de Tuplas
-
-```python
-# Crear una tupla
-colores = ("rojo", "verde", "azul")
-
-# Acceder al primer y último elemento
-print(colores[0])  # Salida: 'rojo'
-print(colores[-1])  # Salida: 'azul'
-
-# Intentar modificar una tupla generará un error
-# colores[1] = "amarillo"  # Error: 'tuple' object does not support item assignment
-```
-
-### Resumen y Tareas
-- Hoy aprendiste sobre listas y tuplas en Python.
-- Practicaste cómo crear, manipular y acceder a elementos de listas y tuplas.
-- **Tarea:** Crea un programa que:
-  1. Defina una lista de tus frutas favoritas y realice al menos tres manipulaciones (agregar, eliminar, modificar).
-  2. Defina una tupla con los nombres de los días de la semana y acceda a los primeros tres días.
-  3. Explique las diferencias entre listas y tuplas en un comentario dentro del código.
+1. **Manipulador de Tareas:** Crea una lista de tareas pendientes. Agrega 2 tareas nuevas al final usando `.append()`, inserta otra en la primera posición utilizando `.insert(0, tarea)` y elimina la última usando `.pop()`. Muestra la lista resultante.
+2. **Empaquetado de Datos:** Define una tupla que represente los datos de un libro: `(titulo, autor, anio_publicacion)`. Intenta cambiar el año de publicación. Registra el error obtenido y explica por qué sucede.
+3. **Extracción de Rangos:** Dada la lista `valores = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]`, obtén y muestra:
+   * Los primeros 3 elementos.
+   * Los últimos 2 elementos usando índices negativos.
+   * La sublista invertida que contenga desde el elemento `70` al `30`.

@@ -1,75 +1,127 @@
-# Curso de Python Básico
+# 🐍 Curso de Python Básico
 
-¡Bienvenido al curso de Python Básico! En este curso, exploraremos los fundamentos de la programación en Python, desde los conceptos básicos hasta la creación de proyectos prácticos. A lo largo de este curso, aprenderás a utilizar Python para resolver problemas simples y a desarrollar habilidades fundamentales de programación.
+¡Bienvenido al **Curso de Python Básico**! Este repositorio está diseñado como una guía didáctica paso a paso para introducirte en los fundamentos de la programación utilizando Python. Desde la configuración inicial del entorno de desarrollo hasta la construcción de proyectos prácticos interactivos, este curso proporciona explicaciones teóricas sólidas y ejercicios prácticos de código para consolidar tu aprendizaje.
 
-## Contenido del Curso
+---
 
-1. **Introducción a Python**
-   - Instalación y configuración del entorno
-   - Primer programa en Python: "Hola, Mundo"
-   
-2. **Variables y Tipos de Datos**
-   - Tipos de datos básicos: enteros, flotantes, cadenas, booleanos
-   - Operaciones básicas con variables
-   
-3. **Estructuras de Control**
-   - Condicionales: if, elif, else
-   - Ciclos: for, while
-   
-4. **Funciones**
-   - Definición y llamada a funciones
-   - Parámetros y valores de retorno
-   
-5. **Listas y Tuplas**
-   - Creación y manipulación de listas
-   - Acceso a elementos y sublistas
-   - Tuplas y sus diferencias con listas
-   
-6. **Diccionarios y Conjuntos**
-   - Creación y uso de diccionarios
-   - Métodos y operaciones con diccionarios
-   - Introducción a los conjuntos
-   
-7. **Manejo de Cadenas**
-   - Operaciones básicas con cadenas
-   - Métodos de cadenas
-   - Formateo de cadenas
-   
-8. **Entrada y Salida**
-   - Entrada de usuario
-   - Salida de datos en consola
-   - Archivos: lectura y escritura
-   
-9. **Módulos y Librerías Estándar**
-   - Importación de módulos
-   - Uso de librerías estándar
-   
-10. **Proyectos Prácticos Básicos**
-    - Proyecto 1: Calculadora básica
-    - Proyecto 2: Juego de adivinanza de números
+## 🚀 Características del Curso
+* **Estructura Modular:** Aprendizaje progresivo dividido en 10 lecciones temáticas.
+* **Teoría y Práctica:** Cada módulo cuenta con una explicación conceptual detallada y su correspondiente guía de código comentada.
+* **Proyectos del Mundo Real:** Implementaciones de scripts interactivos al final del curso para integrar todo lo aprendido.
+* **Formato Académico:** Desafíos prácticos propuestos para motivar el autoaprendizaje.
 
-## Requisitos Previos
+---
 
-No se requieren conocimientos previos de programación para este curso. Se recomienda tener instalado Python en tu computadora para poder practicar los ejemplos y proyectos.
+## 📂 Estructura del Repositorio
 
-## Ejecución de Ejemplos
+El proyecto está organizado de la siguiente manera:
 
-Cada sección del curso incluye ejemplos de código que puedes ejecutar directamente en tu entorno de desarrollo. Simplemente copia el código Python en un archivo `.py` y ejecútalo desde la línea de comandos o un IDE compatible con Python.
+```text
+CursoBasicoPython/
+├── LICENSE                 # Términos de uso y distribución (Licencia MIT)
+├── README.md               # Guía general e índice del curso (este archivo)
+├── Leccion1/               # Introducción y Primer Programa
+│   ├── Leccion1.md         # Teoría de la Lección 1
+│   ├── CodigoLeccion1.md   # Código y explicaciones de ejemplos
+│   └── *.py                # Scripts ejecutables de ejemplo
+├── Leccion2/               # Variables y Tipos de Datos
+│   ...
+└── Leccion10/              # Proyectos Prácticos Integradores
+```
 
-## Recursos Adicionales
+---
 
-- [Python Documentation](https://docs.python.org/3/) - Documentación oficial de Python.
+## 🗓️ Plan de Estudios e Índice del Curso
 
-## Contribuciones
+A continuación, se detalla el contenido curricular del curso. Puedes acceder a la teoría y los ejemplos de código directamente haciendo clic en los enlaces de la tabla:
 
-Si encuentras algún error o deseas mejorar este curso, no dudes en crear un issue o enviar un pull request. ¡Todas las contribuciones son bienvenidas!
+| Lección | Temas Principales | Documentación Teórica | Guía de Código Práctico |
+| :--- | :--- | :---: | :---: |
+| **1. Introducción** | Instalación, configuración del entorno (VS Code) y primer "Hola, Mundo". | [Teoría Lección 1](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion1/Leccion1.md) | [Ejemplos Lección 1](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion1/CodigoLeccion1.md) |
+| **2. Variables y Datos** | Enteros, flotantes, cadenas, booleanos y operaciones aritmético-lógicas básicas. | [Teoría Lección 2](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion2/Leccion2.md) | [Ejemplos Lección 2](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion2/CodigoLeccion2.md) |
+| **3. Estructuras de Control** | Toma de decisiones (`if`, `elif`, `else`) y bucles de repetición (`for`, `while`, `break`, `continue`). | [Teoría Lección 3](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion3/Leccion3.md) | [Ejemplos Lección 3](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion3/CodigoLeccion3.md) |
+| **4. Funciones** | Modularidad de código: definición, parámetros por defecto, retornos y ejemplos de utilidad. | [Teoría Lección 4](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion4/Leccion4.md) | [Ejemplos Lección 4](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion4/CodigoLeccion4.md) |
+| **5. Colecciones: Secuencias** | Listas y tuplas: creación, indexación, rebanado (slicing) y anidamiento. | [Teoría Lección 5](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion5/Leccion5.md) | [Ejemplos Lección 5](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion5/CodigoLeccion5.md) |
+| **6. Colecciones: Mapeos** | Diccionarios y conjuntos: estructuras clave-valor, unicidad y álgebra de conjuntos. | [Teoría Lección 6](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion6/Leccion6.md) | [Ejemplos Lección 6](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion6/CodigoLeccion6.md) |
+| **7. Manejo de Cadenas** | Métodos de manipulación de texto y técnicas de formateo avanzadas (`f-strings` y `.format()`). | [Teoría Lección 7](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion7/Leccion7.md) | [Ejemplos Lección 7](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion7/CodigoLeccion7.md) |
+| **8. Entrada / Salida (I/O)** | Interactividad y persistencia: lectura y escritura de archivos planos con manejo de excepciones. | [Teoría Lección 8](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion8/Leccion8.md) | [Ejemplos Lección 8](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion8/CodigoLeccion8.md) |
+| **9. Módulos y Librerías** | Importación y uso de módulos integrados (`math`, `random`, `os`, `datetime`). | [Teoría Lección 9](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion9/Leccion9.md) | [Ejemplos Lección 9](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion9/CodigoLeccion9.md) |
+| **10. Proyectos Prácticos** | Desarrollo integrador: Calculadora interactiva y Juego de adivinanza numérica. | [Teoría Lección 10](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion10/Leccion10.md) | [Ejemplos Lección 10](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/Leccion10/CodigoLeccion10.md) |
 
-## Contacto
+---
 
-Para cualquier consulta o sugerencia, puedes contactar al autor del curso:
+## 🛠️ Configuración e Instalación del Entorno
 
-- Nombre: Bastian Landskron
-- Email: bastianlandskronfreelancer@gmail.com
-- GitHub: https://github.com/Blandskron
+### 1. Instalar Python
+Este curso requiere **Python 3.8 o superior**. Sigue las instrucciones correspondientes a tu sistema operativo:
 
-¡Disfruta aprendiendo Python!
+* **Windows:**
+  1. Descarga el instalador oficial desde [python.org](https://www.python.org/).
+  2. Ejecuta el archivo `.exe` descargado.
+  3. **IMPORTANTE:** Marca la casilla **"Add Python to PATH"** antes de dar clic en *Install Now*.
+* **macOS:**
+  Instala Python usando Homebrew en tu terminal:
+  ```bash
+  brew install python
+  ```
+* **Linux (Ubuntu/Debian):**
+  Actualiza los repositorios e instala la suite de Python a través de `apt`:
+  ```bash
+  sudo apt update
+  sudo apt install python3 python3-pip
+  ```
+
+### 2. Instalar el Editor de Código (Recomendado)
+Te sugerimos utilizar **Visual Studio Code (VS Code)**:
+1. Descárgalo de [code.visualstudio.com](https://code.visualstudio.com/).
+2. Ábrelo, dirígete al panel de *Extensions* (`Ctrl+Shift+X` o `Cmd+Shift+X`).
+3. Busca e instala la extensión oficial de **Python** (desarrollada por Microsoft).
+
+---
+
+## 💻 Ejecución de los Scripts de Código
+
+Para ejecutar los archivos de ejemplo en tu computadora, sigue estos pasos:
+
+1. Abre tu terminal o símbolo del sistema.
+2. Navega hasta el directorio del repositorio clonado:
+   ```bash
+   cd CursoBasicoPython
+   ```
+3. Dirígete a la carpeta de la lección que deseas ejecutar (por ejemplo, `Leccion3`):
+   ```bash
+   cd Leccion3
+   ```
+4. Ejecuta el archivo deseado utilizando el intérprete de Python:
+   ```bash
+   python 01_Condicional-IF.py
+   ```
+   *(En sistemas Unix/Linux/macOS, es posible que debas usar `python3` en lugar de `python`)*.
+
+---
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bien recibidas! Si deseas proponer mejoras, corregir erratas o añadir nuevos ejercicios prácticos:
+1. Haz un **Fork** del proyecto.
+2. Crea una rama para tu característica (`git checkout -b feature/nueva-mejora`).
+3. Confirma tus cambios (`git commit -m 'Añade nueva funcionalidad pedagógica'`).
+4. Sube tu rama (`git push origin feature/nueva-mejora`).
+5. Abre un **Pull Request**.
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia **MIT**. Puedes consultar el archivo [LICENSE](file:///c:/Users/BlandskronNotebook/Documents/updatesGitHubs/CursoBasicoPython/LICENSE) para conocer todos los detalles de uso libre y distribución comercial o privada.
+
+---
+
+## 📬 Autor y Contacto
+
+Creado con pasión por el desarrollo educativo:
+* **Autor:** Bastian Landskron
+* **Email:** [bastianlandskronfreelancer@gmail.com](mailto:bastianlandskronfreelancer@gmail.com)
+* **GitHub:** [@Blandskron](https://github.com/Blandskron)
+
+*¡Disfruta tu camino de aprendizaje y bienvenido al mundo de Python!*

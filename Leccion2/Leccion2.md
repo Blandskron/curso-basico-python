@@ -1,137 +1,90 @@
-## Lección 2: Variables y Tipos de Datos
+# Lección 2: Variables y Tipos de Datos
 
-### 1. Tipos de Datos Básicos
+Esta lección cubre las bases de cómo almacenar información en memoria y manipular diferentes clases de valores como números, textos y estados de verdad.
 
-#### Objetivos
-- Comprender qué son las variables y cómo se utilizan en Python.
-- Conocer los tipos de datos básicos: enteros, flotantes, cadenas y booleanos.
-- Realizar operaciones básicas con variables.
+---
 
-#### Variables
-- Una variable es un espacio en la memoria donde se almacena un valor.
-- En Python, no es necesario declarar el tipo de variable explícitamente; Python lo infiere automáticamente.
+## 🎯 Objetivos de Aprendizaje
+Al finalizar esta lección, serás capaz de:
+1. **Definir** qué es una variable y comprender el concepto de tipado dinámico en Python.
+2. **Reconocer y emplear** los cuatro tipos de datos primordiales: Enteros (`int`), Flotantes (`float`), Cadenas de texto (`str`) y Booleanos (`bool`).
+3. **Efectuar** operaciones matemáticas elementales y lógicas con variables.
+4. **Realizar** conversiones de tipo de datos (casting) de forma explícita.
 
-#### Asignación de Variables
-- Se utiliza el signo igual (`=`) para asignar valores a las variables.
+---
 
-```python
-# Asignación de variables
-numero_entero = 10
-numero_flotante = 10.5
-cadena_texto = "Hola, Python"
-valor_booleano = True
-```
+## 📖 Contenido Conceptual
 
-### 2. Tipos de Datos
-
-#### Enteros (int)
-- Los enteros son números sin parte decimal.
+### 1. Variables y Tipado Dinámico
+Una variable es un identificador o nombre que apunta a una ubicación de almacenamiento en la memoria física de la computadora. En Python, la asignación se realiza mediante el operador `=`.
 
 ```python
-# Ejemplo de entero
-numero_entero = 42
-print(numero_entero)
+edad = 25
 ```
 
-#### Flotantes (float)
-- Los flotantes son números con parte decimal.
+> [!NOTE]
+> **Tipado Dinámico:** A diferencia de lenguajes como C++ o Java, en Python no necesitas indicar explícitamente si tu variable guardará un número o un texto. El intérprete deduce el tipo de forma automática basándose en el valor asignado y permite que una misma variable cambie de tipo en cualquier momento.
 
-```python
-# Ejemplo de flotante
-numero_flotante = 3.14
-print(numero_flotante)
-```
+#### Reglas de Nomenclatura para Variables
+* Deben iniciar con una letra o guion bajo (`_`).
+* No pueden iniciar con números.
+* Solo contienen caracteres alfanuméricos y guiones bajos (`a-z`, `A-Z`, `0-9`, `_`).
+* Son sensibles a mayúsculas y minúsculas (Case-Sensitive): `total` y `Total` son variables distintas.
+* No pueden utilizarse palabras reservadas del lenguaje (como `if`, `while`, `import`, etc.).
 
-#### Cadenas (str)
-- Las cadenas son secuencias de caracteres encerradas entre comillas simples o dobles.
+---
 
-```python
-# Ejemplo de cadena
-cadena_texto = "Hola, Mundo"
-print(cadena_texto)
-```
+### 2. Tipos de Datos Primitivos
 
-#### Booleanos (bool)
-- Los booleanos representan valores de verdad: `True` o `False`.
+| Nombre Técnico | Tipo en Python | Descripción | Ejemplo |
+| :--- | :---: | :--- | :--- |
+| **Entero** | `int` | Números enteros positivos o negativos, sin decimales. | `contador = 100` |
+| **Flotante** | `float` | Números con parte fraccionaria o decimal. | `precio = 19.99` |
+| **Cadena de Texto** | `str` | Colección ordenada de caracteres delimitados por comillas simples (`'`) o dobles (`"`). | `curso = "Curso de Python"` |
+| **Booleano** | `bool` | Valores lógicos de verdad, únicamente pueden ser verdadero o falso. | `activo = True` |
 
-```python
-# Ejemplo de booleano
-valor_booleano = True
-print(valor_booleano)
-```
+---
 
-### 3. Operaciones Básicas con Variables
+### 3. Operaciones Básicas y Aritméticas
 
-#### Operaciones Aritméticas
-- Puedes realizar operaciones aritméticas básicas con variables enteras y flotantes.
+Python soporta todos los operadores matemáticos estándar:
 
-```python
-# Suma
-a = 10
-b = 5
-suma = a + b
-print("Suma:", suma)
+* **Suma (`+`)**
+* **Resta (`-`)**
+* **Multiplicación (`*`)**
+* **División (`/`):** Produce siempre un número flotante (`float`), incluso si la división es exacta.
+* **División Entera (`//`):** Trunca la parte decimal, devolviendo únicamente la parte entera del cociente.
+* **Módulo (`%`):** Devuelve el residuo de una división entera.
+* **Exponenciación (`**`):** Eleva un número a la potencia de otro.
 
-# Resta
-resta = a - b
-print("Resta:", resta)
+> [!WARNING]
+> La división por cero (ej. `x / 0` o `x // 0`) genera un error de tiempo de ejecución de tipo `ZeroDivisionError`. Debes asegurarte de validar los denominadores antes de realizar estas operaciones.
 
-# Multiplicación
-multiplicacion = a * b
-print("Multiplicación:", multiplicacion)
+---
 
-# División
-division = a / b
-print("División:", division)
+### 4. Conversión de Tipos de Datos (Casting)
+En ocasiones es indispensable forzar la transformación de un dato a otro tipo (por ejemplo, convertir una cadena de texto ingresada por teclado a número entero para poder operarla matemáticamente).
 
-# División entera
-division_entera = a // b
-print("División Entera:", division_entera)
+Para ello se utilizan funciones constructoras integradas:
+* `int(valor)`: Convierte el valor a entero.
+* `float(valor)`: Convierte el valor a flotante.
+* `str(valor)`: Convierte el valor a representación de texto.
+* `bool(valor)`: Evalúa el valor bajo lógica booleana (cualquier número distinto de cero y cualquier cadena no vacía se evalúan como `True`).
 
-# Módulo
-modulo = a % b
-print("Módulo:", modulo)
+---
 
-# Exponenciación
-exponente = a ** b
-print("Exponenciación:", exponente)
-```
+## 📝 Resumen de la Lección
+* Las variables sirven para etiquetar y hacer referencia a datos en memoria.
+* Python deduce automáticamente el tipo de dato de una variable (tipado dinámico).
+* Los tipos básicos son `int`, `float`, `str` y `bool`.
+* Se pueden realizar operaciones matemáticas y lógicas directamente sobre variables del mismo tipo.
+* El "Casting" permite convertir variables entre diferentes tipos de datos manualmente.
 
-#### Concatenación de Cadenas
-- Las cadenas pueden concatenarse usando el operador `+`.
+---
 
-```python
-# Concatenación de cadenas
-saludo = "Hola"
-nombre = "Juan"
-frase = saludo + ", " + nombre + "!"
-print(frase)
-```
+## 🏋️ Desafíos Prácticos
+Desarrolla tus habilidades resolviendo estos ejercicios en tu entorno local:
 
-#### Operaciones con Booleanos
-- Puedes realizar operaciones lógicas con booleanos utilizando operadores como `and`, `or` y `not`.
-
-```python
-# Operaciones lógicas
-verdadero = True
-falso = False
-
-# AND lógico
-resultado_and = verdadero and falso
-print("AND lógico:", resultado_and)
-
-# OR lógico
-resultado_or = verdadero or falso
-print("OR lógico:", resultado_or)
-
-# NOT lógico
-resultado_not = not verdadero
-print("NOT lógico:", resultado_not)
-```
-
-### Resumen y Tareas
-- Hoy aprendiste sobre variables y los tipos de datos básicos en Python.
-- Practicaste operaciones básicas con estos tipos de datos.
-- **Tarea:** Crea un programa que:
-  1. Pida al usuario dos números y muestre la suma, resta, multiplicación y división de estos números.
-  2. Pida al usuario su nombre y edad, y muestre un mensaje personalizado utilizando estos datos.
+1. **Calculadora Tributaria:** Define una variable `ingreso_mensual` con un valor flotante y calcula el impuesto a pagar correspondiente al 19%. Muestra el resultado de forma legible.
+2. **Casting Seguro:** Intenta forzar la conversión de la cadena `"123.45"` a un entero utilizando `int()`. ¿Qué sucede? Investiga cuál es la forma correcta de realizar esta conversión en dos pasos.
+3. **Tabla Lógica:** Crea un script que declare dos variables booleanas `p = True` y `q = False`. Imprime en consola la salida de la expresión `(p or q) and not (p and q)`. Explica qué operación lógica representa.
