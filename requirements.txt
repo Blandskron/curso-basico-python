@@ -1,0 +1,2 @@
+# Este modulo usa solamente la biblioteca estandar de Python.
+# Recomendado: Python 3.10 o superior.

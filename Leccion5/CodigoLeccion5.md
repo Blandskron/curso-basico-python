@@ -9,7 +9,7 @@ Esta guía documenta los scripts prácticos correspondientes a la **Lección 5**
 | Archivo Ejecutable | Concepto que Ilustra | Comando de Ejecución |
 | :--- | :--- | :--- |
 | `01_CreacionyManipulaciondeListas.py` | Métodos mutables básicos de listas | `python 01_CreacionyManipulaciondeListas.py` |
-| `02_AccesoaElementosySublitas.py` | Indexación simple y extracción de sublistas | `python 02_AccesoaElementosySublitas.py` |
+| `02_AccesoaElementosySublistas.py` | Indexación simple y extracción de sublistas | `python 02_AccesoaElementosySublistas.py` |
 | `03_CreacionyAccesoaElementosdeTuplas.py` | Declaración y acceso a tuplas | `python 03_CreacionyAccesoaElementosdeTuplas.py` |
 | `04_DiferenciasentreListasyTuplas.py` | Evidencia de mutabilidad vs inmutabilidad | `python 04_DiferenciasentreListasyTuplas.py` |
 | `05_UsoAvanzadodeSlicingenListas.py` | Segmentación avanzada de secuencias | `python 05_UsoAvanzadodeSlicingenListas.py` |
@@ -42,7 +42,7 @@ print("Lista actualizada de frutas:", frutas)
 
 ---
 
-### Ejemplo 2: Acceso a Elementos y Sublistas (`02_AccesoaElementosySublitas.py`)
+### Ejemplo 2: Acceso a Elementos y Sublistas (`02_AccesoaElementosySublistas.py`)
 ```python
 numeros = [10, 20, 30, 40, 50]
 

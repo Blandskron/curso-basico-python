@@ -8,7 +8,7 @@ Esta guía recopila y explica los scripts prácticos correspondientes a la **Lec
 
 | Archivo Ejecutable | Concepto que Ilustra | Comando de Ejecución |
 | :--- | :--- | :--- |
-| `01_FuncionsinParametrodysinRetorno.py` | Función básica sin datos de entrada/salida | `python 01_FuncionsinParametrodysinRetorno.py` |
+| `01_FuncionsinParametrosysinRetorno.py` | Función básica sin datos de entrada/salida | `python 01_FuncionsinParametrosysinRetorno.py` |
 | `02_FuncionconParametrosysinRetorno.py` | Parámetros obligatorios sin retorno | `python 02_FuncionconParametrosysinRetorno.py` |
 | `03_FuncionconParametrosyconRetorno.py` | Uso de parámetros y cláusula `return` | `python 03_FuncionconParametrosyconRetorno.py` |
 | `04_FuncionconParametrosporDefecto.py` | Declaración de argumentos predeterminados | `python 04_FuncionconParametrosporDefecto.py` |
@@ -23,7 +23,7 @@ Esta guía recopila y explica los scripts prácticos correspondientes a la **Lec
 
 ## 🔍 Explicación Detallada de los Ejemplos
 
-### Ejemplo 1: Función sin Parámetro y sin Retorno (`01_FuncionsinParametrodysinRetorno.py`)
+### Ejemplo 1: Función sin Parámetro y sin Retorno (`01_FuncionsinParametrosysinRetorno.py`)
 ```python
 def saludar():
     print("Hola, Mundo")

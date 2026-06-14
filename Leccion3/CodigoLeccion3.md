@@ -16,7 +16,7 @@ Esta guía documenta los scripts de ejemplos de condicionales y ciclos bucle des
 | `06_Ciclo-WHILE.py` | Bucle basado en condiciones variables | `python 06_Ciclo-WHILE.py` |
 | `07_Usode-BREAK-enun-CICLO.py` | Salida forzada de un bucle | `python 07_Usode-BREAK-enun-CICLO.py` |
 | `08_Usode-Continue-enun-CICLO.py` | Omisión de iteraciones específicas | `python 08_Usode-Continue-enun-CICLO.py` |
-| `09_ProgramaInterectivo-Condicionales.py` | Entrada de usuario clasificada por condicionales | `python 09_ProgramaInterectivo-Condicionales.py` |
+| `09_ProgramaInteractivo-Condicionales.py` | Entrada de usuario clasificada por condicionales | `python 09_ProgramaInteractivo-Condicionales.py` |
 | `10_ProgramaInteractivo-CICLO-FOR.py` | Conteo automático con ciclo `for` | `python 10_ProgramaInteractivo-CICLO-FOR.py` |
 | `11_ProgramaInteractivo-Ciclo-WHILE.py` | Centinela de salida interactiva | `python 11_ProgramaInteractivo-Ciclo-WHILE.py` |
 
@@ -157,7 +157,7 @@ for i in range(10):
 
 ---
 
-### Ejemplo 9: Programa Interactivo - Condicionales (`09_ProgramaInterectivo-Condicionales.py`)
+### Ejemplo 9: Programa Interactivo - Condicionales (`09_ProgramaInteractivo-Condicionales.py`)
 ```python
 # Programa que determina si un número es positivo, negativo o cero
 numero = float(input("Introduce un número: "))

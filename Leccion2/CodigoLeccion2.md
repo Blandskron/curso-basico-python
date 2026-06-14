@@ -9,7 +9,7 @@ Esta guía documenta los archivos y ejemplos de código práctico dedicados al e
 | Archivo Ejecutable | Concepto que Ilustra | Comando de Ejecución |
 | :--- | :--- | :--- |
 | `01_AsignaciondeVariables.py` | Asignación básica e inferencia de tipos | `python 01_AsignaciondeVariables.py` |
-| `02_OperacionesArismeticas.py` | Operaciones aritméticas elementales | `python 02_OperacionesArismeticas.py` |
+| `02_OperacionesAritmeticas.py` | Operaciones aritméticas elementales | `python 02_OperacionesAritmeticas.py` |
 | `03_ConcatenaciondeCadenas.py` | Unión y formateo de texto | `python 03_ConcatenaciondeCadenas.py` |
 | `04_OperacionesconBooleanos.py` | Álgebra booleana y comparadores lógicos | `python 04_OperacionesconBooleanos.py` |
 | `05_ProgramaInteractivo_OperacionesAritmeticas.py` | Entrada interactiva y operaciones matemáticas | `python 05_ProgramaInteractivo_OperacionesAritmeticas.py` |
@@ -35,7 +35,7 @@ valor_booleano = True
 
 ---
 
-### Ejemplo 2: Operaciones Aritméticas (`02_OperacionesArismeticas.py`)
+### Ejemplo 2: Operaciones Aritméticas (`02_OperacionesAritmeticas.py`)
 Cálculo aritmético usando variables y constantes.
 
 ```python

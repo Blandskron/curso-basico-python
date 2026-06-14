@@ -10,8 +10,8 @@ Esta guía detalla los scripts prácticos correspondientes a la **Lección 8**, 
 | :--- | :--- | :--- |
 | `01_EntradadeUsuariosySalidaenConsola.py` | Interactividad básica y personalización de print | `python 01_EntradadeUsuariosySalidaenConsola.py` |
 | `02_LecturayEscrituradeArchivos.py` | Apertura básica de archivos (modos `w` y `r`) | `python 02_LecturayEscrituradeArchivos.py` |
-| `03_ManipuaciondeArchivosconIteracion.py` | Escritura de arreglos de datos en archivos | `python 03_ManipuaciondeArchivosconIteracion.py` |
-| `04_Usode-TRY-EXCEP-paraManejodeErroresdeArchivos.py` | Control de errores al abrir archivos inexistentes | `python 04_Usode-TRY-EXCEP-paraManejodeErroresdeArchivos.py` |
+| `03_ManipulaciondeArchivosconIteracion.py` | Escritura de arreglos de datos en archivos | `python 03_ManipulaciondeArchivosconIteracion.py` |
+| `04_Usode-TRY-EXCEPT-paraManejodeErroresdeArchivos.py` | Control de errores al abrir archivos inexistentes | `python 04_Usode-TRY-EXCEPT-paraManejodeErroresdeArchivos.py` |
 | `05_LecturadeArchivosLineaporLinea.py` | Lectura eficiente de archivos grandes | `python 05_LecturadeArchivosLineaporLinea.py` |
 
 ---
@@ -57,7 +57,7 @@ with open("ejemplo.txt", "r") as archivo:
 
 ---
 
-### Ejemplo 3: Manipulación de Archivos con Iteración (`03_ManipuaciondeArchivosconIteracion.py`)
+### Ejemplo 3: Manipulación de Archivos con Iteración (`03_ManipulaciondeArchivosconIteracion.py`)
 ```python
 lineas = ["Primera línea de datos\n", "Segunda línea de datos\n", "Tercera línea de datos\n"]
 
@@ -71,7 +71,7 @@ print("Datos escritos correctamente.")
 
 ---
 
-### Ejemplo 4: Uso de `try-except` para Manejo de Errores de Archivos (`04_Usode-TRY-EXCEP-paraManejodeErroresdeArchivos.py`)
+### Ejemplo 4: Uso de `try-except` para Manejo de Errores de Archivos (`04_Usode-TRY-EXCEPT-paraManejodeErroresdeArchivos.py`)
 ```python
 nombre_archivo = "archivo_inexistente.txt"
 

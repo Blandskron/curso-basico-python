@@ -73,7 +73,7 @@ for archivo in archivos:
 * **Explicación:** Demuestra el uso del módulo `os` para leer directorios físicos del equipo y comprobar rutas.
 * **Salida:** *(Dependerá del equipo local del usuario)*
   ```text
-  Directorio de trabajo actual: C:\Users\BlandskronNotebook\Documents\updatesGitHubs\CursoBasicoPython\Leccion9
+  Directorio de trabajo actual: C:\ruta\al\curso-basico-python\Leccion9
   Archivos en la carpeta:
   - 01_ImportacionyUsoBasicodeModulos.py
   - 02_UsodeFuncionesEspecificasdeModulos.py
